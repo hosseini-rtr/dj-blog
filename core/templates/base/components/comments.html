@@ -1,0 +1,30 @@
+{% load i18n %}
+<div class="comments-section mt-4">
+    {% for comment in comments %}
+        {% if not comment.parent %}
+            <div class="comment mb-3 p-3 border rounded">
+                <div class="d-flex justify-content-between">
+                    <strong>{{ comment.author.get_full_name }}</strong>
+                    <small class="text-muted">{{ comment.created_at|date:"Y/m/d H:i" }}</small>
+                </div>
+                <p class="mt-2 mb-1">{{ comment.content }}</p>
+                {# پاسخ‌ها #}
+                {% if comment.replies.exists %}
+                    <div class="replies ms-4 mt-3">
+                        {% for reply in comment.replies.all %}
+                            <div class="reply p-2 mb-2 bg-light rounded">
+                                <div class="d-flex justify-content-between">
+                                    <strong class="text-primary">{{ reply.author.get_full_name }}</strong>
+                                    <small class="text-muted">{{ reply.created_at|date:"Y/m/d H:i" }}</small>
+                                </div>
+                                <p class="mt-1 mb-0">{{ reply.content }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% empty %}
+        <p class="text-muted">{% trans 'There is no comment yet.' %}</p>
+    {% endfor %}
+</div>

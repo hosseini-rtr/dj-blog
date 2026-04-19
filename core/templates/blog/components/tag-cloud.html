@@ -1,0 +1,16 @@
+{% load static %} {% load i18n %}
+<div class="mb-4">
+    <div class="border-bottom">
+        <div class="pb-4">
+            <h4 class="pb-2 fw-bold fs-14">
+                {% trans 'DISCOVER MORE OF WHAT MATTERS TO YOU'%}</h4>
+            {% for tag in tags %}
+            <span class="border border-dark p-1 mb-2 px-3 me-1 rounded-pill" style="display:inline-block">
+                <a class="text-decoration-none text-dark fs-15 fw-500" href="{% url 'blog:by_tag' tag.slug %}">
+                {{tag.name}}
+                </a>
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+</div>

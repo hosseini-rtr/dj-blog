@@ -1,0 +1,26 @@
+.vscode
+.idea
+.DS_Store
+staticfiles/
+
+# Virtual environments
+.venv
+.envs/*
+!.envs/.env.example
+
+# db
+db.sqlite3
+dump.rdb
+media/
+
+# Python-generated files
+.python-version
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+
+logs/

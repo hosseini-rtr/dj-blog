@@ -1,0 +1,34 @@
+{% load static %} {% load i18n %}
+<!doctype html>
+<html
+  lang="{{ LANGUAGE_CODE }}"
+  dir="{% if LANGUAGE_CODE == 'fa' or LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% if LANGUAGE_CODE == 'fa' or LANGUAGE_CODE == 'ar' %}
+    <link
+      href="{% static 'bootstrap/css/bootstrap.rtl.min.css' %}"
+      rel="stylesheet"
+    />
+    {% else %}
+    <link
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    {% endif %}
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <script
+      src="{% static 'htmx/htmx.min.js' %}"
+      crossorigin="anonymous"
+    ></script>
+    {% include './navbar.html' %}
+    <div class="">{% block template %}{% endblock %}</div>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>
