@@ -8,4 +8,5 @@ urlpatterns = [
     path("post/<slug:post>/", views.post_detail, name="post_detail"),
     path("search/", views.PostSearchView.as_view(), name="search"),
     path("tag/<slug:tag>/", views.TagListView.as_view(), name="by_tag"),
+    path("api/latest_posts/", views.latest_posts_api, name="latest_posts")
 ]

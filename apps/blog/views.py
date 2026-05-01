@@ -1,6 +1,7 @@
 from typing import Any
 
 from django.db.models.query import QuerySet
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView
 
@@ -60,3 +61,21 @@ class PostSearchView(ListView):
 
     def get_template_names(self):
         return "blog/search.html"
+
+
+def latest_posts_api(request):
+    posts = Post.objects.filter(is_published=True).order_by('-created_at')[:5]
+
+    data = [
+        {
+            "title": post.title,
+            "slug": post.slug,
+            "thumbnail": post.thumbnail,
+            "lang": post.lang,
+            "date": post.created_at.strftime("%Y-%m-%d")
+
+        }
+        for post in posts
+    ]
+
+    return JsonResponse(data=data, safe=False)
