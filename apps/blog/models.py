@@ -1,4 +1,4 @@
-from ckeditor_uploader.fields import RichTextUploadingField
+from django_ckeditor_5.fields import CKEditor5Field
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.urls import reverse
@@ -31,7 +31,7 @@ class Post(
 ):
     title = models.CharField(max_length=255, unique=True)
     subtitle = models.CharField(max_length=100, null=True, blank=True)
-    content = RichTextUploadingField()
+    content = CKEditor5Field(config_name="default")
     image = models.ImageField(upload_to=post_image_path)
     thumbnail = models.ImageField(
         upload_to='posts/thumbnails/', null=True, blank=True)
