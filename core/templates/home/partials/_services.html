@@ -1,0 +1,35 @@
+{% load static %}
+{% load i18n %}
+
+<!-- ═══════════════════════════════════════════════
+     SERVICES SECTION
+     Context keys: services (list of title, description)
+     ═══════════════════════════════════════════════ -->
+<section id="services" class="section services-section" aria-labelledby="services-heading">
+
+  <div class="container-xl px-4 px-md-5">
+
+    <div class="section-header" data-reveal>
+      <span class="section-label mono">{% trans "03 — Services" %}</span>
+      <h2 id="services-heading" class="section-title">{% trans "How I Help" %}</h2>
+    </div>
+
+    <div class="services-grid">
+      {% for service in services %}
+        <article class="service-card" data-reveal data-index="{{ forloop.counter0 }}"
+                 aria-label="{{ service.title }}">
+          <div class="service-num mono" aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</div>
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-desc">{{ service.description }}</p>
+          <div class="service-arrow" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="service-hover-bg" aria-hidden="true"></div>
+        </article>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

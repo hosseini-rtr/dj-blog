@@ -1,0 +1,31 @@
+{% load static %}
+{% load i18n %}
+
+<!-- ═══════════════════════════════════════════════
+     COLLABORATIONS / GROUPS SECTION
+     Context keys: groups (name, role, description)
+     ═══════════════════════════════════════════════ -->
+<section id="collaborations" class="section groups-section" aria-labelledby="groups-heading">
+
+  <div class="container-xl px-4 px-md-5">
+
+    <div class="section-header" data-reveal>
+      <span class="section-label mono">{% trans "05 — Collaborations" %}</span>
+      <h2 id="groups-heading" class="section-title">{% trans "Business Groups" %}</h2>
+    </div>
+
+    <div class="groups-grid">
+      {% for group in groups %}
+        <article class="group-card" data-reveal>
+          <div class="group-top">
+            <div class="group-dot" aria-hidden="true"></div>
+            <span class="group-role mono">{{ group.role }}</span>
+          </div>
+          <h3 class="group-name">{{ group.name }}</h3>
+          <p class="group-desc">{{ group.description }}</p>
+        </article>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

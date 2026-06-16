@@ -1,0 +1,104 @@
+{% load static %}
+{% load i18n %}
+
+<!-- ═══════════════════════════════════════════════
+     CONTACT SECTION
+     Context keys: contact.title, contact.intro
+     POST endpoint: /contact/ (contact_view)
+     ═══════════════════════════════════════════════ -->
+<section id="contact" class="section contact-section" aria-labelledby="contact-heading">
+
+  <div class="container-xl px-4 px-md-5">
+
+    <div class="contact-inner">
+
+      <div class="contact-left" data-reveal>
+        <span class="section-label mono">{% trans "06 — Contact" %}</span>
+        <h2 id="contact-heading" class="section-title">{{ contact.title }}</h2>
+        <p class="contact-intro">{{ contact.intro }}</p>
+
+        <div class="contact-meta">
+          <div class="contact-meta-item">
+            <span class="mono">{% trans "Response time" %}</span>
+            <span>{% trans "Usually within 24h" %}</span>
+          </div>
+          <div class="contact-meta-item">
+            <span class="mono">{% trans "Timezone" %}</span>
+            <span>{% trans "UTC+3:30 (Tehran)" %}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right" data-reveal>
+        <!-- HTMX or plain fetch form -->
+        <div id="contact-form-wrap">
+          <div id="contact-success" class="contact-success" hidden aria-live="polite">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p>{% trans "Message sent. I'll be in touch soon." %}</p>
+          </div>
+
+          <div id="contact-error" class="contact-error" hidden aria-live="assertive">
+            <p id="contact-error-msg"></p>
+          </div>
+
+          <div id="contact-form-inner">
+            <div class="form-row">
+              <div class="field-wrap">
+                <input type="text" id="contact-name" name="name"
+                       class="field-input" placeholder=" " autocomplete="name" required>
+                <label for="contact-name" class="field-label">{% trans "Name" %}</label>
+              </div>
+              <div class="field-wrap">
+                <input type="email" id="contact-email" name="email"
+                       class="field-input" placeholder=" " autocomplete="email" required>
+                <label for="contact-email" class="field-label">{% trans "Email" %}</label>
+              </div>
+            </div>
+
+            <div class="field-wrap">
+              <input type="text" id="contact-subject" name="subject"
+                     class="field-input" placeholder=" " required>
+              <label for="contact-subject" class="field-label">{% trans "Subject" %}</label>
+            </div>
+
+            <div class="field-wrap">
+              <textarea id="contact-message" name="message"
+                        class="field-input field-textarea"
+                        placeholder=" " rows="5" required></textarea>
+              <label for="contact-message" class="field-label">{% trans "Message" %}</label>
+            </div>
+
+            <button type="button" id="contact-submit" class="btn-primary-sharp contact-btn">
+              <span class="btn-text">{% trans "Send Message" %}</span>
+              <span class="btn-spinner" hidden aria-hidden="true"></span>
+              <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <!-- CSRF token for fetch -->
+            {% csrf_token %}
+          </div>
+        </div>
+      </div><!-- /.contact-right -->
+
+    </div><!-- /.contact-inner -->
+  </div><!-- /.container-xl -->
+
+  <!-- Marquee footer strip -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      {% for i in "12345678" %}
+        <span class="marquee-item">Backend Engineering</span>
+        <span class="marquee-dot">·</span>
+        <span class="marquee-item">AI Integration</span>
+        <span class="marquee-dot">·</span>
+        <span class="marquee-item">Systems Architecture</span>
+        <span class="marquee-dot">·</span>
+      {% endfor %}
+    </div>
+  </div>
+
+</section>

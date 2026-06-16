@@ -126,7 +126,11 @@ class ViewCountModel(models.Model):
     def view_count(self):
         return self.views.count()
 
-    def record_view(self, user: Optional[User] = None, viewer_ip: Optional[str] = None):
+    def record_view(
+        self,
+        user: Optional[User] = None,
+        viewer_ip: Optional[str] = None,
+    ):
         ContentView.record_view(self, user, viewer_ip)
 
 
@@ -170,11 +174,17 @@ class ContentView(TimeStampedModel):
 
     def __str__(self) -> str:
         user_name = self.user.get_full_name() if self.user else "Anonymous"
-        return f"{self.content_type} viewed by: {user_name} from IP {self.viewer_ip}"
+        return (
+            f"{self.content_type} viewed by: {user_name} from IP "
+            f"{self.viewer_ip}"
+        )
 
     @classmethod
     def record_view(
-        cls, content_object: Any, user: Optional[User], viewer_ip: Optional[str]
+        cls,
+        content_object: Any,
+        user: Optional[User],
+        viewer_ip: Optional[str],
     ) -> None:
         content_type = ContentType.objects.get_for_model(content_object)
 
@@ -235,12 +245,18 @@ class Comment(TimeStampedModel, AuthoredModel):
         return self.parent is not None
 
     def __str__(self):
-        return f"Comment by {self.author.get_full_name()} on {self.content_object}"
+        return (
+            f"Comment by {self.author.get_full_name()} on "
+            f"{self.content_object}"
+        )
 
 
 class ShortURL(models.Model):
     content_type = models.ForeignKey(
-        ContentType, on_delete=models.CASCADE, verbose_name=_("Content Type"))
+        ContentType,
+        on_delete=models.CASCADE,
+        verbose_name=_("Content Type"),
+    )
     object_id = models.PositiveIntegerField(verbose_name=_("Object Id"))
     content_object = GenericForeignKey("content_type", "object_id")
     short_code = models.CharField(max_length=10, unique=True)
@@ -249,12 +265,12 @@ class ShortURL(models.Model):
         verbose_name = _("Short url")
         verbose_name_plural = _("short urls")
         indexes = [
-            models.Index(fields=['content_type', 'object_id']),
+            models.Index(fields=["content_type", "object_id"]),
         ]
         constraints = [
             models.UniqueConstraint(
-                fields=['content_type', 'object_id'],
-                name='unique_short_url_per_object'
+                fields=["content_type", "object_id"],
+                name="unique_short_url_per_object",
             )
         ]
 
@@ -265,3 +281,23 @@ class ShortURL(models.Model):
     def generate_code(obj):
         text = f"{obj.__class__.__name__}{obj.pk}"
         return hashlib.md5(text.encode()).hexdigest()[:6]
+
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=120, verbose_name=_("Name"))
+    email = models.EmailField(verbose_name=_("Email"))
+    subject = models.CharField(max_length=200, verbose_name=_("Subject"))
+    message = models.TextField(verbose_name=_("Message"))
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name=_("Created at"),
+    )
+    is_read = models.BooleanField(default=False, verbose_name=_("Read"))
+
+    class Meta:
+        verbose_name = _("Contact Message")
+        verbose_name_plural = _("Contact Messages")
+        ordering = ["-created_at"]
+
+    def __str__(self) -> str:
+        return f"{self.name} <{self.email}>: {self.subject}"

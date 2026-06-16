@@ -108,3 +108,362 @@ msgstr ""
 #: core/templates/blog/components/tag-cloud.html:6
 msgid "DISCOVER MORE OF WHAT MATTERS TO YOU"
 msgstr ""
+
+# Homepage and contact strings
+msgid "Personal Homepage"
+msgstr "Pagina personale"
+
+msgid "Success"
+msgstr "Successo"
+
+msgid "Error"
+msgstr "Errore"
+
+msgid "Open navigation"
+msgstr "Apri navigazione"
+
+msgid "Close navigation"
+msgstr "Chiudi navigazione"
+
+msgid "Quick Navigation"
+msgstr "Navigazione rapida"
+
+msgid "Hero"
+msgstr "Hero"
+
+msgid "Profile"
+msgstr "Profilo"
+
+msgid "Career Snapshot"
+msgstr "Panoramica carriera"
+
+msgid "A short view of the roles, credentials, and technical strengths behind the work."
+msgstr "Uno sguardo rapido ai ruoli, alle credenziali e ai punti di forza tecnici dietro il lavoro."
+
+msgid "Services"
+msgstr "Servizi"
+
+msgid "How I Help"
+msgstr "Come posso aiutare"
+
+msgid "Focused support for teams that need robust systems, smart automation, and a steady shipping cadence."
+msgstr "Supporto mirato per team che hanno bisogno di sistemi robusti, automazione intelligente e un ritmo costante di rilascio."
+
+msgid "Selected Work"
+msgstr "Lavori selezionati"
+
+msgid "Projects"
+msgstr "Progetti"
+
+msgid "A few sample builds that show the range of backend, research, and open-source work."
+msgstr "Alcuni esempi che mostrano l'ampiezza del lavoro backend, di ricerca e open source."
+
+msgid "All"
+msgstr "Tutto"
+
+msgid "Backend"
+msgstr "Backend"
+
+msgid "AI/ML"
+msgstr "AI/ML"
+
+msgid "Research"
+msgstr "Ricerca"
+
+msgid "OSS"
+msgstr "OSS"
+
+msgid "Filter the cards without leaving the page."
+msgstr "Filtra le schede senza lasciare la pagina."
+
+msgid "Code"
+msgstr "Codice"
+
+msgid "Live"
+msgstr "Live"
+
+msgid "Business Groups"
+msgstr "Gruppi di lavoro"
+
+msgid "Collaborations"
+msgstr "Collaborazioni"
+
+msgid "A small sample of product groups, research circles, and advisory work that shaped the portfolio."
+msgstr "Un piccolo campione di gruppi prodotto, cerchie di ricerca e attività di consulenza che hanno dato forma al portfolio."
+
+msgid "Discuss a project"
+msgstr "Parliamo di un progetto"
+
+msgid "Reach Out"
+msgstr "Contattami"
+
+msgid "Let’s talk"
+msgstr "Parliamone"
+
+msgid "Use the form for project ideas, consulting questions, or research collaborations."
+msgstr "Usa il modulo per idee di progetto, domande di consulenza o collaborazioni di ricerca."
+
+msgid "Fast response for clear project briefs."
+msgstr "Risposta rapida per brief di progetto chiari."
+
+msgid "Async-friendly contact for teams in different time zones."
+msgstr "Contatto adatto all'asincrono per team in fusi orari diversi."
+
+msgid "Open to backend, AI, and infrastructure work."
+msgstr "Disponibile per lavori backend, AI e infrastruttura."
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Your name"
+msgstr "Il tuo nome"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "you@example.com"
+msgstr "tuo@esempio.com"
+
+msgid "Subject"
+msgstr "Oggetto"
+
+msgid "Project inquiry"
+msgstr "Richiesta progetto"
+
+msgid "Message"
+msgstr "Messaggio"
+
+msgid "Tell me a bit about your idea, timeline, and goals."
+msgstr "Raccontami un po' della tua idea, delle tempistiche e dei tuoi obiettivi."
+
+msgid "Send message"
+msgstr "Invia messaggio"
+
+msgid "Your message was sent successfully."
+msgstr "Il tuo messaggio è stato inviato con successo."
+
+msgid "We could not send your message right now."
+msgstr "Non è stato possibile inviare il messaggio in questo momento."
+
+# Homepage content strings
+msgid "Seyed Hossein Hosseini"
+msgstr "Seyed Hossein Hosseini"
+
+msgid "SHH"
+msgstr "SHH"
+
+msgid "Backend Engineer"
+msgstr "Ingegnere backend"
+
+msgid "AI/ML Researcher"
+msgstr "Ricercatore AI/ML"
+
+msgid "Systems Architect"
+msgstr "Architetto di sistemi"
+
+msgid "Building resilient platforms, applied intelligence, and interfaces with a strong sense of motion."
+msgstr "Creo piattaforme resilienti, intelligenza applicata e interfacce con un forte senso di movimento."
+
+msgid "View Projects"
+msgstr "Vedi i progetti"
+
+msgid "Contact Me"
+msgstr "Contattami"
+
+msgid "Personal homepage and work journal"
+msgstr "Homepage personale e diario di lavoro"
+
+msgid "About Me"
+msgstr "Chi sono"
+
+msgid "I design dependable backend systems, practical AI workflows, and product experiences that stay fast under pressure. This page is sample content and is ready for your real bio, metrics, and case studies."
+msgstr "Progetto sistemi backend affidabili, flussi AI pratici ed esperienze di prodotto che restano veloci sotto pressione. Questa pagina contiene testo di esempio ed è pronta per la tua bio reale, i dati e i casi di studio."
+
+msgid "Years of Experience"
+msgstr "Anni di esperienza"
+
+msgid "Projects Shipped"
+msgstr "Progetti consegnati"
+
+msgid "Research Papers"
+msgstr "Articoli di ricerca"
+
+msgid "Open Source Repos"
+msgstr "Repo open source"
+
+msgid "Resume"
+msgstr "Curriculum"
+
+msgid "Experience"
+msgstr "Esperienza"
+
+msgid "Education"
+msgstr "Formazione"
+
+msgid "Certificates"
+msgstr "Certificazioni"
+
+msgid "Skills"
+msgstr "Competenze"
+
+msgid "Senior Backend Engineer"
+msgstr "Ingegnere backend senior"
+
+msgid "Northstar Labs"
+msgstr "Northstar Labs"
+
+msgid "2023 - Present"
+msgstr "2023 - oggi"
+
+msgid "Led API and data platform work for products that serve thousands of daily requests with predictable latency."
+msgstr "Ho guidato il lavoro su API e piattaforma dati per prodotti che servono migliaia di richieste al giorno con latenza prevedibile."
+
+msgid "Introduced background job orchestration, observability, and deployment hygiene across the stack."
+msgstr "Ho introdotto orchestrazione dei job in background, osservabilità e disciplina di deployment in tutto lo stack."
+
+msgid "Partnered with product and research teams to turn prototypes into shipping systems."
+msgstr "Ho collaborato con i team di prodotto e ricerca per trasformare i prototipi in sistemi pronti al rilascio."
+
+msgid "Machine Learning Engineer"
+msgstr "Ingegnere di machine learning"
+
+msgid "Signal Forge"
+msgstr "Signal Forge"
+
+msgid "2020 - 2023"
+msgstr "2020 - 2023"
+
+msgid "Built training pipelines, feature stores, and evaluation tooling for applied NLP and ranking systems."
+msgstr "Ho costruito pipeline di training, feature store e strumenti di valutazione per NLP applicato e sistemi di ranking."
+
+msgid "Reduced experiment turnaround time by automating dataset versioning and reproducibility checks."
+msgstr "Ho ridotto i tempi degli esperimenti automatizzando il versionamento dei dataset e i controlli di riproducibilità."
+
+msgid "M.S. in Computer Science"
+msgstr "Laurea magistrale in Informatica"
+
+msgid "Tehran Tech University"
+msgstr "Tehran Tech University"
+
+msgid "2018 - 2020"
+msgstr "2018 - 2020"
+
+msgid "Focused on distributed systems, information retrieval, and applied machine learning."
+msgstr "Con focus su sistemi distribuiti, information retrieval e machine learning applicato."
+
+msgid "Completed a thesis on efficient model serving under constrained infrastructure."
+msgstr "Ho completato una tesi sul serving efficiente dei modelli in infrastrutture limitate."
+
+msgid "B.S. in Software Engineering"
+msgstr "Laurea triennale in Ingegneria del software"
+
+msgid "Azad University"
+msgstr "Azad University"
+
+msgid "2014 - 2018"
+msgstr "2014 - 2018"
+
+msgid "Built a foundation in algorithms, databases, and software architecture."
+msgstr "Ho costruito una base in algoritmi, database e architettura software."
+
+msgid "Cloud Architecture Professional"
+msgstr "Professionista di architettura cloud"
+
+msgid "Cloud Guild"
+msgstr "Cloud Guild"
+
+msgid "2024"
+msgstr "2024"
+
+msgid "Applied Machine Learning Specialization"
+msgstr "Specializzazione in machine learning applicato"
+
+msgid "Deep Learn Academy"
+msgstr "Deep Learn Academy"
+
+msgid "Advanced Python Systems"
+msgstr "Sistemi Python avanzati"
+
+msgid "Open Source Institute"
+msgstr "Open Source Institute"
+
+msgid "Backend Architecture"
+msgstr "Architettura backend"
+
+msgid "Designing reliable APIs, data models, queues, and deployment flows for growing products."
+msgstr "Progetto API affidabili, modelli dati, code e flussi di deployment per prodotti in crescita."
+
+msgid "AI Integration"
+msgstr "Integrazione AI"
+
+msgid "Shipping practical ML features that fit real product constraints, metrics, and latency budgets."
+msgstr "Consegno funzionalità ML pratiche che rispettano vincoli reali di prodotto, metriche e budget di latenza."
+
+msgid "Technical Consulting"
+msgstr "Consulenza tecnica"
+
+msgid "Helping teams make better system decisions, from architecture reviews to delivery plans."
+msgstr "Aiuto i team a prendere decisioni migliori sui sistemi, dalle review architetturali ai piani di consegna."
+
+msgid "Atlas Queue"
+msgstr "Atlas Queue"
+
+msgid "A resilient task orchestration service with retries, visibility, and operator-friendly tooling."
+msgstr "Un servizio resiliente di orchestrazione task con retry, visibilità e strumenti adatti agli operatori."
+
+msgid "PaperSignal"
+msgstr "PaperSignal"
+
+msgid "A research companion that clusters papers, extracts insights, and surfaces related work instantly."
+msgstr "Un assistente di ricerca che raggruppa articoli, estrae insight e mostra istantaneamente i lavori correlati."
+
+msgid "Vector Harbor"
+msgstr "Vector Harbor"
+
+msgid "A semantic search backend for product catalogs, knowledge bases, and internal docs."
+msgstr "Un backend di ricerca semantica per cataloghi prodotti, knowledge base e documenti interni."
+
+msgid "Open Orbit Toolkit"
+msgstr "Open Orbit Toolkit"
+
+msgid "A small open-source set of deployment helpers, release scripts, and monitoring snippets."
+msgstr "Un piccolo set open source di helper per deployment, script di release e snippet di monitoring."
+
+msgid "Autonomous Vehicle Research Team"
+msgstr "Team di ricerca sui veicoli autonomi"
+
+msgid "Backend and data systems contributor"
+msgstr "Contributore backend e sistemi dati"
+
+msgid "Supporting telemetry ingestion, experiment tracking, and research dashboards for autonomy work."
+msgstr "Supporto ingestione telemetry, tracciamento esperimenti e dashboard di ricerca per il lavoro sull'autonomia."
+
+msgid "Applied Intelligence Studio"
+msgstr "Applied Intelligence Studio"
+
+msgid "Systems architect"
+msgstr "Architetto di sistemi"
+
+msgid "Shaping the infra and internal tools that keep experiments reproducible and fast to review."
+msgstr "Definisco l'infrastruttura e gli strumenti interni che rendono gli esperimenti riproducibili e veloci da revisionare."
+
+msgid "Founders Collective"
+msgstr "Founders Collective"
+
+msgid "Technical advisor"
+msgstr "Consulente tecnico"
+
+msgid "Helping product teams translate ideas into secure, maintainable systems with clear delivery paths."
+msgstr "Aiuto i team prodotto a trasformare le idee in sistemi sicuri e manutenibili con percorsi di consegna chiari."
+
+msgid "Contact"
+msgstr "Contatto"
+
+msgid "If you want to talk about backend systems, AI experiments, or a product that needs a sturdier foundation, send a message."
+msgstr "Se vuoi parlare di sistemi backend, esperimenti AI o di un prodotto che ha bisogno di basi più solide, scrivimi."
+
+msgid "Please fill out all required fields."
+msgstr "Compila tutti i campi obbligatori."
+
+msgid "Please enter a valid email address."
+msgstr "Inserisci un indirizzo email valido."

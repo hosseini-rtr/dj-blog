@@ -2,7 +2,7 @@
 <!doctype html>
 <html
   lang="{{ LANGUAGE_CODE }}"
-  dir="{% if LANGUAGE_CODE == 'fa' or LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}"
+  dir="{% if LANGUAGE_CODE == 'fa' %}rtl{% else %}ltr{% endif %}"
 >
   <head>
     <meta charset="UTF-8" />
@@ -20,7 +20,10 @@
     />
     {% endif %}
     <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+    {% block extra_head %}{% endblock %}
     <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
   </head>
   <body>
     <script

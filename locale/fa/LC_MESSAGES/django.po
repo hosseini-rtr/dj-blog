@@ -109,3 +109,365 @@ msgstr "آموزش‌ها، نکات و تخصص من در موضوعات تکن
 #: core/templates/blog/components/tag-cloud.html:6
 msgid "DISCOVER MORE OF WHAT MATTERS TO YOU"
 msgstr "روی چیزهایی که برات مهمه تمرکز کن"
+
+# Homepage and contact strings
+msgid "Personal Homepage"
+msgstr "صفحه شخصی"
+
+msgid "Success"
+msgstr "موفق"
+
+msgid "Error"
+msgstr "خطا"
+
+msgid "Open navigation"
+msgstr "باز کردن ناوبری"
+
+msgid "Close navigation"
+msgstr "بستن ناوبری"
+
+msgid "Quick Navigation"
+msgstr "ناوبری سریع"
+
+msgid "Hero"
+msgstr "هدر"
+
+msgid "Profile"
+msgstr "پروفایل"
+
+msgid "Career Snapshot"
+msgstr "نمای کلی مسیر حرفه‌ای"
+
+msgid "A short view of the roles, credentials, and technical strengths behind the work."
+msgstr "نمایی کوتاه از نقش‌ها، مدارک و توانایی‌های فنی پشت این کارها."
+
+msgid "Services"
+msgstr "خدمات"
+
+msgid "How I Help"
+msgstr "چگونه کمک می‌کنم"
+
+msgid "Focused support for teams that need robust systems, smart automation, and a steady shipping cadence."
+msgstr "پشتیبانی متمرکز برای تیم‌هایی که به سیستم‌های پایدار، خودکارسازی هوشمند و ریتم منظم تحویل نیاز دارند."
+
+msgid "Selected Work"
+msgstr "نمونه کارها"
+
+msgid "Projects"
+msgstr "پروژه‌ها"
+
+msgid "A few sample builds that show the range of backend, research, and open-source work."
+msgstr "چند نمونه ساخت واقعی که گستره کارهای بک‌اند، پژوهشی و متن‌باز را نشان می‌دهد."
+
+msgid "All"
+msgstr "همه"
+
+msgid "Backend"
+msgstr "بک‌اند"
+
+msgid "AI/ML"
+msgstr "هوش مصنوعی / یادگیری ماشین"
+
+msgid "Research"
+msgstr "پژوهش"
+
+msgid "OSS"
+msgstr "متن‌باز"
+
+msgid "Filter the cards without leaving the page."
+msgstr "کارت‌ها را بدون ترک صفحه فیلتر کنید."
+
+msgid "Code"
+msgstr "کد"
+
+msgid "Live"
+msgstr "زنده"
+
+msgid "Business Groups"
+msgstr "گروه‌های کاری"
+
+msgid "Collaborations"
+msgstr "همکاری‌ها"
+
+msgid "A small sample of product groups, research circles, and advisory work that shaped the portfolio."
+msgstr "نمونه‌ای کوچک از گروه‌های محصول، حلقه‌های پژوهشی و کارهای مشاوره‌ای که این نمونه‌کارها را شکل داده‌اند."
+
+msgid "Discuss a project"
+msgstr "درباره یک پروژه صحبت کنیم"
+
+msgid "Reach Out"
+msgstr "تماس بگیرید"
+
+msgid "Let’s talk"
+msgstr "بیایید صحبت کنیم"
+
+msgid "Use the form for project ideas, consulting questions, or research collaborations."
+msgstr "از فرم برای ایده‌های پروژه، پرسش‌های مشاوره‌ای یا همکاری‌های پژوهشی استفاده کنید."
+
+msgid "Fast response for clear project briefs."
+msgstr "پاسخ سریع برای شرح پروژه‌های شفاف."
+
+msgid "Async-friendly contact for teams in different time zones."
+msgstr "ارتباط مناسب برای تیم‌هایی در مناطق زمانی مختلف."
+
+msgid "Open to backend, AI, and infrastructure work."
+msgstr "آماده کار روی بک‌اند، هوش مصنوعی و زیرساخت هستم."
+
+msgid "Name"
+msgstr "نام"
+
+msgid "Your name"
+msgstr "نام شما"
+
+msgid "Email"
+msgstr "ایمیل"
+
+msgid "you@example.com"
+msgstr "you@example.com"
+
+msgid "Subject"
+msgstr "موضوع"
+
+msgid "Project inquiry"
+msgstr "استعلام پروژه"
+
+msgid "Message"
+msgstr "پیام"
+
+msgid "Tell me a bit about your idea, timeline, and goals."
+msgstr "کمی درباره ایده، زمان‌بندی و اهداف خود بگویید."
+
+msgid "Send message"
+msgstr "ارسال پیام"
+
+msgid "Your message was sent successfully."
+msgstr "پیام شما با موفقیت ارسال شد."
+
+msgid "We could not send your message right now."
+msgstr "در حال حاضر نتوانستیم پیام شما را ارسال کنیم."
+
+# Homepage content strings
+msgid "Seyed Hossein Hosseini"
+msgstr "سید حسین حسینی"
+
+msgid "SHH"
+msgstr "SHH"
+
+msgid "Backend Engineer"
+msgstr "مهندس بک‌اند"
+
+msgid "AI/ML Researcher"
+msgstr "پژوهشگر هوش مصنوعی و یادگیری ماشین"
+
+msgid "Systems Architect"
+msgstr "معمار سیستم"
+
+msgid "Building resilient platforms, applied intelligence, and interfaces with a strong sense of motion."
+msgstr "ساخت پلتفرم‌های پایدار، هوش کاربردی و رابط‌هایی با حس پویایی."
+
+msgid "View Projects"
+msgstr "مشاهده پروژه‌ها"
+
+msgid "Contact Me"
+msgstr "تماس با من"
+
+msgid "Personal homepage and work journal"
+msgstr "صفحه شخصی و دفترچه کار"
+
+msgid "About Me"
+msgstr "درباره من"
+
+msgid "I design dependable backend systems, practical AI workflows, and product experiences that stay fast under pressure. This page is sample content and is ready for your real bio, metrics, and case studies."
+msgstr "من سیستم‌های بک‌اند قابل اعتماد، جریان‌های عملی هوش مصنوعی و تجربه‌های محصولی طراحی می‌کنم که زیر فشار هم سریع می‌مانند. این صفحه محتوای نمونه است و آماده جایگزینی با بیوی واقعی، شاخص‌ها و مطالعه‌های موردی شماست."
+
+msgid "Years of Experience"
+msgstr "سال تجربه"
+
+msgid "Projects Shipped"
+msgstr "پروژه‌های تحویل‌شده"
+
+msgid "Research Papers"
+msgstr "مقاله‌های پژوهشی"
+
+msgid "Open Source Repos"
+msgstr "مخازن متن‌باز"
+
+msgid "Resume"
+msgstr "رزومه"
+
+msgid "Experience"
+msgstr "تجربه"
+
+msgid "Education"
+msgstr "تحصیلات"
+
+msgid "Certificates"
+msgstr "گواهینامه‌ها"
+
+msgid "Skills"
+msgstr "مهارت‌ها"
+
+msgid "Senior Backend Engineer"
+msgstr "مهندس ارشد بک‌اند"
+
+msgid "Northstar Labs"
+msgstr "Northstar Labs"
+
+msgid "2023 - Present"
+msgstr "۲۰۲۳ - اکنون"
+
+msgid "Led API and data platform work for products that serve thousands of daily requests with predictable latency."
+msgstr "هدایت کارهای API و پلتفرم داده برای محصولاتی که هزاران درخواست روزانه را با تأخیر قابل پیش‌بینی پاسخ می‌دهند."
+
+msgid "Introduced background job orchestration, observability, and deployment hygiene across the stack."
+msgstr "ارکستراسیون کارهای پس‌زمینه، مشاهده‌پذیری و نظم استقرار را در سراسر پشته پیاده‌سازی کردم."
+
+msgid "Partnered with product and research teams to turn prototypes into shipping systems."
+msgstr "با تیم‌های محصول و پژوهش همکاری کردم تا نمونه‌ها را به سیستم‌های آماده انتشار تبدیل کنیم."
+
+msgid "Machine Learning Engineer"
+msgstr "مهندس یادگیری ماشین"
+
+msgid "Signal Forge"
+msgstr "Signal Forge"
+
+msgid "2020 - 2023"
+msgstr "۲۰۲۰ - ۲۰۲۳"
+
+msgid "Built training pipelines, feature stores, and evaluation tooling for applied NLP and ranking systems."
+msgstr "خطوط آموزش، مخازن ویژگی و ابزارهای ارزیابی برای NLP کاربردی و سیستم‌های رتبه‌بندی ساختم."
+
+msgid "Reduced experiment turnaround time by automating dataset versioning and reproducibility checks."
+msgstr "با خودکارسازی نسخه‌بندی داده‌ها و بررسی بازتولیدپذیری، زمان چرخه آزمایش را کاهش دادم."
+
+msgid "M.S. in Computer Science"
+msgstr "کارشناسی ارشد علوم کامپیوتر"
+
+msgid "Tehran Tech University"
+msgstr "دانشگاه فناوری تهران"
+
+msgid "2018 - 2020"
+msgstr "۲۰۱۸ - ۲۰۲۰"
+
+msgid "Focused on distributed systems, information retrieval, and applied machine learning."
+msgstr "تمرکز بر سیستم‌های توزیع‌شده، بازیابی اطلاعات و یادگیری ماشین کاربردی."
+
+msgid "Completed a thesis on efficient model serving under constrained infrastructure."
+msgstr "پایان‌نامه‌ای درباره سرویس‌دهی بهینه مدل در زیرساخت محدود انجام دادم."
+
+msgid "B.S. in Software Engineering"
+msgstr "کارشناسی مهندسی نرم‌افزار"
+
+msgid "Azad University"
+msgstr "دانشگاه آزاد"
+
+msgid "2014 - 2018"
+msgstr "۲۰۱۴ - ۲۰۱۸"
+
+msgid "Built a foundation in algorithms, databases, and software architecture."
+msgstr "پایه‌ای محکم در الگوریتم‌ها، پایگاه‌داده‌ها و معماری نرم‌افزار ساختم."
+
+msgid "Cloud Architecture Professional"
+msgstr "متخصص معماری ابری"
+
+msgid "Cloud Guild"
+msgstr "Cloud Guild"
+
+msgid "2024"
+msgstr "۲۰۲۴"
+
+msgid "Applied Machine Learning Specialization"
+msgstr "تخصص یادگیری ماشین کاربردی"
+
+msgid "Deep Learn Academy"
+msgstr "Deep Learn Academy"
+
+msgid "Advanced Python Systems"
+msgstr "سیستم‌های پیشرفته پایتون"
+
+msgid "Open Source Institute"
+msgstr "Open Source Institute"
+
+msgid "Backend Architecture"
+msgstr "معماری بک‌اند"
+
+msgid "Designing reliable APIs, data models, queues, and deployment flows for growing products."
+msgstr "طراحی APIهای قابل اعتماد، مدل‌های داده، صف‌ها و جریان‌های استقرار برای محصولات در حال رشد."
+
+msgid "AI Integration"
+msgstr "یکپارچه‌سازی هوش مصنوعی"
+
+msgid "Shipping practical ML features that fit real product constraints, metrics, and latency budgets."
+msgstr "تحویل قابلیت‌های عملی ML که با محدودیت‌های واقعی محصول، شاخص‌ها و بودجه تأخیر سازگارند."
+
+msgid "Technical Consulting"
+msgstr "مشاوره فنی"
+
+msgid "Helping teams make better system decisions, from architecture reviews to delivery plans."
+msgstr "کمک به تیم‌ها برای تصمیم‌گیری بهتر در سیستم، از بازبینی معماری تا برنامه تحویل."
+
+msgid "Atlas Queue"
+msgstr "Atlas Queue"
+
+msgid "A resilient task orchestration service with retries, visibility, and operator-friendly tooling."
+msgstr "یک سرویس ارکستراسیون وظایف پایدار با تلاش مجدد، شفافیت و ابزارهای مناسب اپراتور."
+
+msgid "PaperSignal"
+msgstr "PaperSignal"
+
+msgid "A research companion that clusters papers, extracts insights, and surfaces related work instantly."
+msgstr "همراه پژوهشی که مقاله‌ها را خوشه‌بندی می‌کند، بینش استخراج می‌کند و کارهای مرتبط را فوری نشان می‌دهد."
+
+msgid "Vector Harbor"
+msgstr "Vector Harbor"
+
+msgid "A semantic search backend for product catalogs, knowledge bases, and internal docs."
+msgstr "یک بک‌اند جست‌وجوی معنایی برای کاتالوگ محصول، پایگاه دانش و مستندات داخلی."
+
+msgid "Open Orbit Toolkit"
+msgstr "Open Orbit Toolkit"
+
+msgid "A small open-source set of deployment helpers, release scripts, and monitoring snippets."
+msgstr "مجموعه‌ای کوچک و متن‌باز از ابزارهای استقرار، اسکریپت‌های انتشار و قطعه‌کدهای مانیتورینگ."
+
+msgid "Autonomous Vehicle Research Team"
+msgstr "تیم پژوهش خودروهای خودران"
+
+msgid "Backend and data systems contributor"
+msgstr "مشارکت‌کننده بک‌اند و سامانه‌های داده"
+
+msgid "Supporting telemetry ingestion, experiment tracking, and research dashboards for autonomy work."
+msgstr "پشتیبانی از دریافت تله‌متری، رهگیری آزمایش‌ها و داشبوردهای پژوهشی برای کارهای خودران."
+
+msgid "Applied Intelligence Studio"
+msgstr "استودیو هوش کاربردی"
+
+msgid "Systems architect"
+msgstr "معمار سیستم"
+
+msgid "Shaping the infra and internal tools that keep experiments reproducible and fast to review."
+msgstr "شکل‌دادن به زیرساخت و ابزارهای داخلی که آزمایش‌ها را بازتولیدپذیر و سریع برای بازبینی نگه می‌دارند."
+
+msgid "Founders Collective"
+msgstr "جمع بنیان‌گذاران"
+
+msgid "Technical advisor"
+msgstr "مشاور فنی"
+
+msgid "Helping product teams translate ideas into secure, maintainable systems with clear delivery paths."
+msgstr "کمک به تیم‌های محصول برای تبدیل ایده‌ها به سیستم‌های امن و قابل نگهداری با مسیرهای تحویل روشن."
+
+msgid "Contact"
+msgstr "تماس"
+
+msgid "If you want to talk about backend systems, AI experiments, or a product that needs a sturdier foundation, send a message."
+msgstr "اگر می‌خواهید درباره سیستم‌های بک‌اند، آزمایش‌های هوش مصنوعی یا محصولی که به پایه‌ای محکم‌تر نیاز دارد صحبت کنید، پیام بفرستید."
+
+msgid "Please fill out all required fields."
+msgstr "لطفاً همه فیلدهای ضروری را پر کنید."
+
+msgid "Please enter a valid email address."
+msgstr "لطفاً یک نشانی ایمیل معتبر وارد کنید."
+
+msgid "Open navigation"
+msgstr "باز کردن ناوبری"

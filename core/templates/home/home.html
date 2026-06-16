@@ -1,0 +1,32 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{{ hero.name }} — Backend Engineer & AI Researcher{% endblock %}
+
+{% block extra_head %}
+<meta name="description" content="{{ hero.tagline }}">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="{{ hero.name }}">
+<meta property="og:description" content="{{ hero.tagline }}">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="{% static 'css/home.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block template %}
+<main id="page-main">
+  {% include "home/partials/_hero.html" %}
+  {% include "home/partials/_about.html" %}
+  {% include "home/partials/_services.html" %}
+  {% include "home/partials/_projects.html" %}
+  {% include "home/partials/_groups.html" %}
+  {% include "home/partials/_contact.html" %}
+</main>
+
+<script src="{% static 'gsap/gsap.min.js' %}"></script>
+<script src="{% static 'gsap/ScrollTrigger.min.js' %}"></script>
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

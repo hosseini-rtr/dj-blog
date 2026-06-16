@@ -1,9 +1,9 @@
 {% load static %} {% load i18n %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark text-light shadow-sm">
   <div class="container">
-    <a class="navbar-brand fw-bold display-1" href="{% url 'blog:home' %}">
-      <img src="{% static 'assets/logo-white.svg' %}" height="60" style="filter: brightness(0.5) invert(1);"/>
+    <a class="navbar-brand fw-bold display-1" href="{% url 'home' %}">
+      <img src="{% static 'assets/logo-white.svg' %}" height="60" alt="Logo" />
     </a>
 
     <button
@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog:home' %}"
+          <a class="nav-link" href="{% url 'home' %}"
             >{% trans "Home" %}</a
           >
         </li>
@@ -28,7 +28,7 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">{% trans "About" %}</a>
+          <a class="nav-link" href="{% url 'home' %}#about">{% trans "About" %}</a>
         </li>
         <li class="nav-item dropdown">
           <a

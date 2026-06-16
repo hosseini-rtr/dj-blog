@@ -1,0 +1,140 @@
+{% load static %}
+{% load i18n %}
+
+<!-- ═══════════════════════════════════════════════
+     RESUME / ABOUT SECTION
+     Context keys: about.title, about.bio,
+                   resume.tabs, resume.experience,
+                   resume.education, resume.certificates,
+                   resume.skills
+     ═══════════════════════════════════════════════ -->
+<section id="about" class="section resume-section" aria-labelledby="resume-heading">
+  <div class="container-xl px-4 px-md-5">
+
+    <div class="section-header" data-reveal>
+      <span class="section-label mono">{% trans "02 — Resume" %}</span>
+      <h2 id="resume-heading" class="section-title">{{ about.title }}</h2>
+    </div>
+
+    <!-- Profile row -->
+    <div class="profile-row" data-reveal>
+      <div class="profile-avatar" aria-hidden="true">
+        <span class="avatar-initials mono">SHH</span>
+        <div class="avatar-ring"></div>
+      </div>
+      <p class="profile-bio">{{ about.bio }}</p>
+    </div>
+
+    <!-- Tab nav -->
+    <div class="resume-tabs" role="tablist" aria-label="{% trans 'Resume sections' %}" data-reveal>
+      {% for tab in resume.tabs %}
+        <button class="resume-tab {% if forloop.first %}active{% endif %}"
+                role="tab"
+                id="tab-{{ tab.id }}"
+                aria-controls="panel-{{ tab.id }}"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                data-target="panel-{{ tab.id }}">
+          {{ tab.label }}
+        </button>
+      {% endfor %}
+      <div class="tab-ink" aria-hidden="true"></div>
+    </div>
+
+    <!-- Tab panels -->
+    <div class="resume-panels">
+
+      <!-- Experience -->
+      <div class="resume-panel active" id="panel-experience" role="tabpanel" aria-labelledby="tab-experience">
+        <div class="timeline">
+          {% for item in resume.experience %}
+            <div class="timeline-item" data-reveal>
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <div class="tl-meta">
+                  <span class="tl-period mono">{{ item.period }}</span>
+                </div>
+                <h3 class="tl-role">{{ item.role }}</h3>
+                <p class="tl-org">{{ item.org }}</p>
+                <ul class="tl-bullets">
+                  {% for bullet in item.bullets %}
+                    <li>{{ bullet }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="resume-panel" id="panel-education" role="tabpanel" aria-labelledby="tab-education">
+        <div class="timeline">
+          {% for item in resume.education %}
+            <div class="timeline-item" data-reveal>
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <div class="tl-meta">
+                  <span class="tl-period mono">{{ item.period }}</span>
+                </div>
+                <h3 class="tl-role">{{ item.role }}</h3>
+                <p class="tl-org">{{ item.org }}</p>
+                <ul class="tl-bullets">
+                  {% for bullet in item.bullets %}
+                    <li>{{ bullet }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Certificates -->
+      <div class="resume-panel" id="panel-certificates" role="tabpanel" aria-labelledby="tab-certificates">
+        <div class="cert-grid">
+          {% for cert in resume.certificates %}
+            <div class="cert-card" data-reveal>
+              <div class="cert-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="cert-body">
+                <h3 class="cert-name">{{ cert.name }}</h3>
+                <p class="cert-issuer">{{ cert.issuer }}</p>
+              </div>
+              <span class="cert-date mono">{{ cert.date }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="resume-panel" id="panel-skills" role="tabpanel" aria-labelledby="tab-skills">
+        <div class="skills-grid">
+          {% for group in resume.skills %}
+            <div class="skill-group" data-reveal>
+              <h3 class="skill-category mono">{{ group.category }}</h3>
+              <div class="skill-bars">
+                {% for skill in group.items %}
+                  <div class="skill-row">
+                    <span class="skill-name">{{ skill.name }}</span>
+                    <div class="skill-track" role="progressbar"
+                         aria-valuenow="{{ skill.percent }}"
+                         aria-valuemin="0" aria-valuemax="100"
+                         aria-label="{{ skill.name }} {{ skill.percent }}%">
+                      <div class="skill-fill" data-percent="{{ skill.percent }}" style="width:0%"></div>
+                    </div>
+                    <span class="skill-pct mono">{{ skill.percent }}%</span>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div><!-- /.resume-panels -->
+
+  </div><!-- /.container-xl -->
+</section>
