@@ -277,10 +277,105 @@ HOME_CONTEXT = {
 
 def _home_context():
     hero_name = str(HOME_CONTEXT["hero"]["name"])
-    context = dict(HOME_CONTEXT)
-    context["hero"] = dict(HOME_CONTEXT["hero"])
-    context["hero"]["letters"] = list(hero_name)
-    return context
+    hero = dict(HOME_CONTEXT["hero"])
+    hero["letters"] = list(hero_name)
+    hero["role"] = hero.get("roles", ["Backend Engineer"])[0]
+    hero["location"] = _("Remote / Global")
+    hero["availability"] = _("Open to select work")
+
+    about = dict(HOME_CONTEXT["about"])
+    about["paragraph_1"] = about.get("bio") or _(
+        "I design dependable backend systems, practical AI workflows, "
+        "and product experiences that stay fast under pressure."
+    )
+    about["paragraph_2"] = _(
+        "I focus on building systems that are dependable, maintainable, "
+        "and calm under production pressure."
+    )
+    about["years_experience"] = 6
+    about["projects_shipped"] = 28
+    about["teams_led"] = 4
+
+    skills = []
+    for group in HOME_CONTEXT["resume"]["skills"]:
+        skills.append(
+            {
+                "category": group.get("category", ""),
+                "items": [
+                    {
+                        "name": item.get("name", ""),
+                        "level": item.get("percent", 0),
+                    }
+                    for item in group.get("items", [])
+                ],
+            }
+        )
+
+    tools = [
+        "Python",
+        "Django",
+        "Celery",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "Linux",
+        "Git",
+    ]
+
+    groups = []
+    for group in HOME_CONTEXT["groups"]:
+        groups.append(
+            {
+                "period": group.get("name", ""),
+                "name": group.get("name", ""),
+                "role": group.get("role", ""),
+                "description": group.get("description", ""),
+                "tags": group.get("tags", []),
+            }
+        )
+
+    projects = []
+    for project in HOME_CONTEXT["projects"]:
+        projects.append(
+            {
+                "name": project.get("name", ""),
+                "description": project.get("description", ""),
+                "tags": project.get("stack", []),
+                "url": project.get("live", ""),
+            }
+        )
+
+    services = []
+    glyphs = ["◆", "▲", "●"]
+    for index, service in enumerate(HOME_CONTEXT["services"]):
+        services.append(
+            {
+                "glyph": glyphs[index % len(glyphs)],
+                "title": service.get("title", ""),
+                "description": service.get("description", ""),
+            }
+        )
+
+    contact = {
+        "email": getattr(settings, "CONTACT_EMAIL", "hello@example.com"),
+        "location": _("Remote / Global"),
+        "socials": [
+            {"name": "GitHub", "url": "https://github.com/"},
+            {"name": "LinkedIn", "url": "https://linkedin.com/"},
+            {"name": "X", "url": "https://x.com/"},
+        ],
+    }
+
+    return {
+        "hero": hero,
+        "about": about,
+        "skills": skills,
+        "tools": tools,
+        "groups": groups,
+        "projects": projects,
+        "services": services,
+        "contact": contact,
+    }
 
 
 def home_view(request):
@@ -321,16 +416,14 @@ def _slack_notify(name: str, email: str, subject: str) -> None:
 def contact_view(request):
     name = (request.POST.get("name") or "").strip()
     email = (request.POST.get("email") or "").strip()
-    subject = (request.POST.get("subject") or "").strip()
+    subject = (request.POST.get("subject") or "Website contact").strip()
     message = (request.POST.get("message") or "").strip()
 
-    if not all([name, email, subject, message]):
+    if not all([name, email, message]):
         return JsonResponse(
             {
-                "status": "error",
-                "message": _(
-                    "Please fill out all required fields."
-                ),
+                "success": False,
+                "message": _("Please fill out all required fields."),
             },
             status=400,
         )
@@ -340,10 +433,8 @@ def contact_view(request):
     except ValidationError:
         return JsonResponse(
             {
-                "status": "error",
-                "message": _(
-                    "Please enter a valid email address."
-                ),
+                "success": False,
+                "message": _("Please enter a valid email address."),
             },
             status=400,
         )
@@ -356,4 +447,9 @@ def contact_view(request):
     )
     _slack_notify(name=name, email=email, subject=subject)
 
-    return JsonResponse({"status": "ok"})
+    return JsonResponse(
+        {
+            "success": True,
+            "message": _("Thanks for reaching out. I will get back to you soon."),
+        }
+    )

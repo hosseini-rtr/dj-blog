@@ -1,247 +1,131 @@
-/**
- * home.js — Portfolio animations & interactions
- * Dependencies: GSAP + ScrollTrigger (loaded before this script)
- *
- * Sections:
- *  1. GSAP setup
- *  2. Hero entrance timeline
- *  3. Scroll-reveal for [data-reveal] elements
- *  4. Stat counters
- *  5. Skill bar fills
- *  6. Resume tab switcher
- *  7. Project filter
- *  8. Contact form (fetch + CSRF)
- *  9. Role cycling
- */
-
 (function () {
   "use strict";
 
-  /* ── 1. GSAP setup ─────────────────────────────────────────── */
-  if (typeof gsap === "undefined") {
-    console.warn("home.js: GSAP not loaded — animations disabled.");
-    document.querySelectorAll("[data-reveal]").forEach((el) => {
-      el.style.opacity = 1;
-      el.style.transform = "none";
-    });
-    return;
-  }
-
+  if (typeof gsap === "undefined") return;
   gsap.registerPlugin(ScrollTrigger);
 
-  /* ── 2. Hero entrance ──────────────────────────────────────── */
-  const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- Hero boot-up sequence ---------- */
+  var heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
   heroTl
-    .to(".hero-eyebrow", { opacity: 1, y: 0, duration: 0.6 }, 0.2)
-    .to(".name-char", {
-      opacity: 1,
-      y: 0,
-      duration: 0.55,
-      stagger: 0.03,
-      ease: "power4.out",
-    }, 0.5)
-    .to(".hero-roles", { opacity: 1, y: 0, duration: 0.5 }, 0.9)
-    .to(".hero-tagline", { opacity: 1, y: 0, duration: 0.5 }, 1.0)
-    .to(".hero-stats",   { opacity: 1, y: 0, duration: 0.5 }, 1.1)
-    .to(".hero-ctas",    { opacity: 1, y: 0, duration: 0.5 }, 1.2)
-    .to(".hero-social",  { opacity: 1, y: 0, duration: 0.5 }, 1.3);
+    .from(".hero__status", { opacity: 0, y: -10, duration: 0.5 })
+    .from(".eyebrow", { opacity: 0, y: -10, duration: 0.5 }, "-=0.3")
+    .from(".hero__line", {
+      opacity: 0,
+      y: reduceMotion ? 0 : 40,
+      clipPath: "inset(0 0 100% 0)",
+      duration: 0.9,
+    }, "-=0.2")
+    .from(".hero__tagline", { opacity: 0, y: 16, duration: 0.6 }, "-=0.4")
+    .from(".hero__meta-item", { opacity: 0, y: 14, duration: 0.5, stagger: 0.08 }, "-=0.3")
+    .from(".hero__actions .btn", { opacity: 0, y: 14, duration: 0.5, stagger: 0.1 }, "-=0.3")
+    .from(".corner", { opacity: 0, duration: 0.4, stagger: 0.05 }, "-=0.6");
 
-  /* ── 3. Scroll-reveal ──────────────────────────────────────── */
-  document.querySelectorAll("[data-reveal]").forEach((el) => {
+  gsap.to(".hero__scroll-cue", {
+    y: 8,
+    duration: 1.2,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut",
+  });
+
+  /* ---------- Generic scroll reveal ---------- */
+  gsap.utils.toArray("[data-reveal]").forEach(function (el) {
     gsap.to(el, {
       opacity: 1,
       y: 0,
-      duration: 0.7,
+      duration: 0.8,
       ease: "power3.out",
       scrollTrigger: {
         trigger: el,
-        start: "top 88%",
-        once: true,
+        start: "top 85%",
+        toggleActions: "play none none reverse",
       },
     });
   });
 
-  /* ── 4. Stat counters ──────────────────────────────────────── */
-  document.querySelectorAll(".stat-value[data-target]").forEach((el) => {
-    const target = parseInt(el.dataset.target, 10);
+  /* ---------- Skill bar fill ---------- */
+  gsap.utils.toArray(".skill-bar__fill").forEach(function (bar) {
+    var level = bar.getAttribute("data-level") || 0;
+    gsap.to(bar, {
+      width: level + "%",
+      duration: 1.1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: bar,
+        start: "top 90%",
+        toggleActions: "play none none reverse",
+      },
+    });
+  });
+
+  /* ---------- Animated counters (about section) ---------- */
+  gsap.utils.toArray(".fact__value").forEach(function (el) {
+    var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+    var counter = { val: 0 };
     ScrollTrigger.create({
       trigger: el,
       start: "top 90%",
       once: true,
-      onEnter() {
-        gsap.to({ val: 0 }, {
+      onEnter: function () {
+        gsap.to(counter, {
           val: target,
           duration: 1.4,
-          ease: "power2.out",
-          onUpdate() {
-            el.textContent = Math.round(this.targets()[0].val);
-          },
-          onComplete() {
-            el.textContent = target;
+          ease: "power1.out",
+          onUpdate: function () {
+            el.textContent = Math.round(counter.val);
           },
         });
       },
     });
   });
 
-  /* ── 5. Skill bar fills ────────────────────────────────────── */
-  document.querySelectorAll(".skill-fill[data-percent]").forEach((bar) => {
-    const pct = bar.dataset.percent + "%";
-    ScrollTrigger.create({
-      trigger: bar,
-      start: "top 92%",
-      once: true,
-      onEnter() {
-        gsap.to(bar, { width: pct, duration: 1.2, ease: "power2.out" });
+  /* ---------- Section title / card entrance on scroll (subtle parallax) ---------- */
+  gsap.utils.toArray(".skill-card, .service-card, .project-card, .timeline__item").forEach(function (el) {
+    gsap.from(el, {
+      opacity: 0,
+      y: 30,
+      duration: 0.7,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: el,
+        start: "top 92%",
+        toggleActions: "play none none reverse",
       },
     });
   });
 
-  /* ── 6. Resume tab switcher ─────────────────────────────────── */
-  const tabs    = document.querySelectorAll(".resume-tab");
-  const panels  = document.querySelectorAll(".resume-panel");
-  const ink     = document.querySelector(".tab-ink");
+  /* ---------- Contact form ---------- */
+  var form = document.getElementById("contact-form");
+  var note = document.getElementById("form-note");
 
-  function moveInk(tab) {
-    if (!ink) return;
-    ink.style.left  = tab.offsetLeft + "px";
-    ink.style.width = tab.offsetWidth + "px";
-  }
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var submitBtn = form.querySelector("button[type=submit]");
+      var originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
 
-  function activateTab(tab) {
-    tabs.forEach((t) => {
-      t.classList.remove("active");
-      t.setAttribute("aria-selected", "false");
-    });
-    panels.forEach((p) => p.classList.remove("active"));
-
-    tab.classList.add("active");
-    tab.setAttribute("aria-selected", "true");
-    const panel = document.getElementById(tab.dataset.target);
-    if (panel) {
-      panel.classList.add("active");
-      // Trigger skill bars in newly revealed panel
-      panel.querySelectorAll(".skill-fill[data-percent]").forEach((bar) => {
-        if (bar.style.width === "0%" || bar.style.width === "") {
-          gsap.to(bar, { width: bar.dataset.percent + "%", duration: 1.2, ease: "power2.out" });
-        }
-      });
-    }
-    moveInk(tab);
-  }
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => activateTab(tab));
-  });
-
-  // Init ink position
-  const activeTab = document.querySelector(".resume-tab.active");
-  if (activeTab) requestAnimationFrame(() => moveInk(activeTab));
-
-  /* ── 7. Project filter ─────────────────────────────────────── */
-  const filterChips = document.querySelectorAll(".filter-chip");
-  const projectRows = document.querySelectorAll(".project-row");
-
-  filterChips.forEach((chip) => {
-    chip.addEventListener("click", () => {
-      filterChips.forEach((c) => c.classList.remove("active"));
-      chip.classList.add("active");
-
-      const filter = chip.dataset.filter;
-      projectRows.forEach((row) => {
-        const tags = (row.dataset.tags || "").split(",");
-        const show = filter === "all" || tags.includes(filter);
-        if (show) {
-          row.classList.remove("hidden");
-          gsap.fromTo(row, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" });
-        } else {
-          gsap.to(row, {
-            opacity: 0, y: -6, duration: 0.25, ease: "power2.in",
-            onComplete() { row.classList.add("hidden"); },
-          });
-        }
-      });
-    });
-  });
-
-  /* ── 8. Contact form ───────────────────────────────────────── */
-  const submitBtn  = document.getElementById("contact-submit");
-  const successEl  = document.getElementById("contact-success");
-  const errorEl    = document.getElementById("contact-error");
-  const errorMsg   = document.getElementById("contact-error-msg");
-  const formInner  = document.getElementById("contact-form-inner");
-
-  if (submitBtn) {
-    submitBtn.addEventListener("click", async () => {
-      const name    = document.getElementById("contact-name")?.value.trim();
-      const email   = document.getElementById("contact-email")?.value.trim();
-      const subject = document.getElementById("contact-subject")?.value.trim();
-      const message = document.getElementById("contact-message")?.value.trim();
-
-      if (!name || !email || !subject || !message) {
-        showError("Please fill out all required fields.");
-        return;
-      }
-
-      setLoading(true);
-
-      const formData = new FormData();
-      formData.append("name", name);
-      formData.append("email", email);
-      formData.append("subject", subject);
-      formData.append("message", message);
-
-      const csrf = document.querySelector("[name=csrfmiddlewaretoken]");
-      if (csrf) formData.append("csrfmiddlewaretoken", csrf.value);
-
-      try {
-        const res  = await fetch("/contact/", { method: "POST", body: formData });
-        const data = await res.json();
-
-        if (res.ok && data.status === "ok") {
-          formInner.hidden = true;
-          successEl.hidden = false;
-          gsap.fromTo(successEl, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.4 });
-        } else {
-          showError(data.message || "Something went wrong. Please try again.");
-        }
-      } catch (err) {
-        showError("Network error. Please check your connection.");
-      } finally {
-        setLoading(false);
-      }
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "X-Requested-With": "XMLHttpRequest" },
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          note.textContent = data.message || "";
+          note.className = "form-note mono-tag " + (data.success ? "is-success" : "is-error");
+          if (data.success) form.reset();
+        })
+        .catch(function () {
+          note.textContent = "Something went wrong. Please try again.";
+          note.className = "form-note mono-tag is-error";
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        });
     });
   }
-
-  function setLoading(on) {
-    if (!submitBtn) return;
-    const text    = submitBtn.querySelector(".btn-text");
-    const spinner = submitBtn.querySelector(".btn-spinner");
-    const arrow   = submitBtn.querySelector(".btn-arrow");
-    submitBtn.disabled = on;
-    if (text)    text.textContent = on ? "Sending…" : "Send Message";
-    if (spinner) spinner.hidden = !on;
-    if (arrow)   arrow.hidden = on;
-  }
-
-  function showError(msg) {
-    if (!errorEl || !errorMsg) return;
-    errorMsg.textContent = msg;
-    errorEl.hidden = false;
-    gsap.fromTo(errorEl, { opacity: 0, y: -4 }, { opacity: 1, y: 0, duration: 0.3 });
-    setTimeout(() => { if (errorEl) errorEl.hidden = true; }, 5000);
-  }
-
-  /* ── 9. Role cycling ───────────────────────────────────────── */
-  const roleChips = document.querySelectorAll(".role-chip");
-  if (roleChips.length > 1) {
-    let current = 0;
-    setInterval(() => {
-      roleChips[current].classList.remove("active");
-      current = (current + 1) % roleChips.length;
-      roleChips[current].classList.add("active");
-    }, 2800);
-  }
-
 })();

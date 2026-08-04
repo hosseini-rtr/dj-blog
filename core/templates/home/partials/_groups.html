@@ -1,31 +1,30 @@
-{% load static %}
 {% load i18n %}
+<section class="groups" id="groups">
+  <div class="section-inner">
+    <p class="eyebrow mono-tag">{% trans "SYS.EXPERIENCE / 04" %}</p>
+    <h2 class="section-title" data-reveal>{% trans "Where I've built things" %}</h2>
 
-<!-- ═══════════════════════════════════════════════
-     COLLABORATIONS / GROUPS SECTION
-     Context keys: groups (name, role, description)
-     ═══════════════════════════════════════════════ -->
-<section id="collaborations" class="section groups-section" aria-labelledby="groups-heading">
-
-  <div class="container-xl px-4 px-md-5">
-
-    <div class="section-header" data-reveal>
-      <span class="section-label mono">{% trans "05 — Collaborations" %}</span>
-      <h2 id="groups-heading" class="section-title">{% trans "Business Groups" %}</h2>
-    </div>
-
-    <div class="groups-grid">
+    <div class="timeline">
       {% for group in groups %}
-        <article class="group-card" data-reveal>
-          <div class="group-top">
-            <div class="group-dot" aria-hidden="true"></div>
-            <span class="group-role mono">{{ group.role }}</span>
+      <article class="timeline__item" data-reveal>
+        <div class="timeline__marker">
+          <span class="timeline__dot"></span>
+          <span class="timeline__period mono-tag">{{ group.period }}</span>
+        </div>
+        <div class="timeline__content">
+          <h3>{{ group.name }}</h3>
+          <p class="timeline__role">{{ group.role }}</p>
+          <p class="timeline__desc">{{ group.description }}</p>
+          {% if group.tags %}
+          <div class="tool-chips tool-chips--small">
+            {% for tag in group.tags %}
+            <span class="tool-chip">{{ tag }}</span>
+            {% endfor %}
           </div>
-          <h3 class="group-name">{{ group.name }}</h3>
-          <p class="group-desc">{{ group.description }}</p>
-        </article>
+          {% endif %}
+        </div>
+      </article>
       {% endfor %}
     </div>
-
   </div>
 </section>
