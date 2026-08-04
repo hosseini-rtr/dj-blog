@@ -10,9 +10,10 @@
   {% block extra_head %}{% endblock %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="{% static 'css/base.css' %}" rel="stylesheet">
-  <link rel="icon" href="data:,">
+  <link rel="icon" href="{% static 'assets/logo-white.svg' %}">
+  <link rel="shortcut icon" href="{% static 'assets/logo-white.svg' %}">
 </head>
 <body class="{% if LANGUAGE_BIDI %}is-rtl{% else %}is-ltr{% endif %} lang-{{ LANGUAGE_CODE }}">
   <div class="grid-veil" aria-hidden="true"></div>
@@ -20,7 +21,9 @@
   <header class="site-header" id="site-header">
     <div class="site-header__inner">
       <a href="{% url 'home' %}" class="brand">
-        <span class="brand__mark">TS</span>
+        <span class="brand__mark" aria-hidden="true">
+          <img src="{% static 'assets/logo-white.svg' %}" alt="">
+        </span>
         <span class="brand__name">Seyed Hossein Hosseini</span>
       </a>
 
@@ -30,7 +33,8 @@
         <a href="#groups"><span class="nav-tag">03</span>{% trans "Experience" %}</a>
         <a href="#projects"><span class="nav-tag">04</span>{% trans "Projects" %}</a>
         <a href="#services"><span class="nav-tag">05</span>{% trans "Services" %}</a>
-        <a href="#contact"><span class="nav-tag">06</span>{% trans "Contact" %}</a>
+        <a href="{% url 'blog:home' %}"><span class="nav-tag">06</span>{% trans "Blog" %}</a>
+        <a href="#contact"><span class="nav-tag">07</span>{% trans "Contact" %}</a>
       </nav>
 
       <div class="header-actions">

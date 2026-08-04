@@ -306,7 +306,20 @@
     display: none
   }
 
+  .timeline__marker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .timeline__dot {
+    position: static;
+    flex-shrink: 0;
+  }
+
   .timeline__period {
+    display: inline-flex;
     padding-inline-start: 0
   }
 }
