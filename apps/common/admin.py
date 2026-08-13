@@ -1,11 +1,12 @@
 from django.contrib import admin
 
-from apps.common.models import Comment, ContactMessage
+from apps.common.models import Comment, ContactMessage, ShortURL
 
 # Register your models here.
 
 
 admin.site.register(Comment)
+admin.site.register(ShortURL)
 
 
 @admin.register(ContactMessage)

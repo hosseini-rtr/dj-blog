@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import RedirectView
 
-from .views import contact_view, home_view, link_page, short_redirect
+from .views import contact_view, home_view, link_page, short_redirect, teacher_links
 
 urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
@@ -19,8 +19,10 @@ urlpatterns += i18n_patterns(
     path("", home_view, name="home"),
     path("contact/", contact_view, name="contact"),
     path("blog/", include("apps.blog.urls")),
+    path("afshin/", teacher_links, name="afshin_page"),
     path("link/", link_page, name="link_page"),
     path("s/<str:code>", short_redirect, name="short_url"),
+    path("connect/", link_page, name="connect"),
 )
 
 if settings.DEBUG:

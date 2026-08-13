@@ -1,0 +1,926 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+Seyed Hossein Hosseini — linkt.ree
+{% endblock %}
+
+{% block extra_head %}
+<style>
+/* =========================================================
+   CONNECT / SIGNAL PAGE
+   Self-contained. No external CSS required.
+   ========================================================= */
+
+.connect-page {
+    --signal-bg: #080a0d;
+    --signal-panel: rgba(255,255,255,.025);
+    --signal-border: rgba(255,255,255,.11);
+    --signal-border-hover: rgba(255,255,255,.28);
+    --signal-text: #f1f3f5;
+    --signal-muted: #858b94;
+    --signal-accent: #d9ff3f;
+
+    min-height: calc(100vh - 80px);
+    padding: 72px 24px 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* background grid */
+
+.connect-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 48px 48px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 90%
+    );
+}
+
+/* ambient signal */
+
+.connect-page::after {
+    content: "";
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    top: -220px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(217,255,63,.08),
+        transparent 65%
+    );
+
+    pointer-events: none;
+}
+
+.connect-container {
+    width: min(720px, 100%);
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ---------------------------------------------------------
+   IDENTITY
+   --------------------------------------------------------- */
+
+.connect-identity {
+    text-align: center;
+    margin-bottom: 52px;
+}
+
+.connect-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 24px;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+
+    color: var(--signal-muted);
+}
+
+.connect-status__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+
+    background: var(--signal-accent);
+
+    box-shadow:
+        0 0 0 4px rgba(217,255,63,.08),
+        0 0 18px rgba(217,255,63,.35);
+
+    animation: signal-pulse 2.2s infinite;
+}
+
+@keyframes signal-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .45;
+    }
+}
+
+
+.connect-avatar {
+    width: 92px;
+    height: 92px;
+
+    margin: 0 auto 25px;
+
+    border: 1px solid var(--signal-border);
+
+    display: grid;
+    place-items: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.015)
+        );
+
+    position: relative;
+}
+
+.connect-avatar::before,
+.connect-avatar::after {
+    content: "";
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    border-color: var(--signal-accent);
+}
+
+.connect-avatar::before {
+    top: -1px;
+    left: -1px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+}
+
+.connect-avatar::after {
+    right: -1px;
+    bottom: -1px;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+}
+
+.connect-avatar img {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+}
+
+
+.connect-avatar__fallback {
+    font-family: "Orbitron", sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -.04em;
+}
+
+
+.connect-name {
+    margin: 0;
+
+    font-family: "Syne", sans-serif;
+    font-size: clamp(32px, 7vw, 54px);
+    line-height: .98;
+    letter-spacing: -.055em;
+    font-weight: 700;
+}
+
+
+.connect-role {
+    margin: 15px 0 0;
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    line-height: 1.7;
+
+    letter-spacing: .1em;
+    text-transform: uppercase;
+
+    color: var(--signal-muted);
+}
+
+
+.connect-bio {
+    max-width: 570px;
+
+    margin: 20px auto 0;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+
+    color: #b5bac1;
+}
+
+
+/* ---------------------------------------------------------
+   PRIMARY SIGNAL
+   --------------------------------------------------------- */
+
+.connect-section {
+    margin-top: 42px;
+}
+
+.connect-section__heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-bottom: 13px;
+}
+
+.connect-section__heading::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+
+    background: var(--signal-border);
+}
+
+.connect-section__eyebrow {
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: .14em;
+    color: var(--signal-accent);
+}
+
+.connect-section__title {
+    margin: 0 0 20px;
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+
+    color: var(--signal-muted);
+}
+
+
+/* ---------------------------------------------------------
+   LINKS
+   --------------------------------------------------------- */
+
+.connect-links {
+    display: grid;
+    gap: 10px;
+}
+
+.connect-link {
+    min-height: 72px;
+
+    display: grid;
+    grid-template-columns: 34px 1fr auto;
+    align-items: center;
+    gap: 18px;
+
+    padding: 14px 18px;
+
+    border: 1px solid var(--signal-border);
+
+    background: var(--signal-panel);
+
+    color: var(--signal-text);
+    text-decoration: none;
+
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        border-color .25s ease,
+        background .25s ease,
+        transform .25s ease;
+}
+
+.connect-link::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(217,255,63,.06),
+        transparent 45%
+    );
+
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.connect-link:hover {
+    border-color: var(--signal-border-hover);
+    background: rgba(255,255,255,.045);
+    transform: translateX(4px);
+}
+
+.connect-link:hover::before {
+    opacity: 1;
+}
+
+.connect-link__number {
+    position: relative;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+
+    color: #555b63;
+}
+
+.connect-link__content {
+    position: relative;
+    min-width: 0;
+}
+
+.connect-link__title {
+    display: block;
+
+    font-family: "Syne", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.connect-link__subtitle {
+    display: block;
+
+    margin-top: 4px;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+
+    color: var(--signal-muted);
+}
+
+.connect-link__meta {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.connect-link__label {
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+
+    color: var(--signal-accent);
+}
+
+.connect-link__arrow {
+    font-family: "DM Mono", monospace;
+    font-size: 18px;
+    color: #777d85;
+
+    transition:
+        transform .25s ease,
+        color .25s ease;
+}
+
+.connect-link:hover .connect-link__arrow {
+    color: var(--signal-accent);
+    transform: translate(3px, -3px);
+}
+
+
+/* FEATURED */
+
+.connect-link--featured {
+    min-height: 88px;
+
+    border-color: rgba(217,255,63,.22);
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(217,255,63,.055),
+            rgba(255,255,255,.025)
+        );
+}
+
+.connect-link--featured .connect-link__title {
+    font-size: 18px;
+}
+
+
+/* ---------------------------------------------------------
+   SOCIAL ROW
+   --------------------------------------------------------- */
+
+.connect-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.connect-social {
+    flex: 1 1 120px;
+
+    padding: 13px 15px;
+
+    border: 1px solid var(--signal-border);
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: .04em;
+
+    color: var(--signal-muted);
+    text-decoration: none;
+
+    text-align: center;
+
+    transition:
+        color .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+}
+
+.connect-social:hover {
+    color: var(--signal-text);
+    border-color: var(--signal-border-hover);
+    background: rgba(255,255,255,.04);
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+.connect-footer {
+    margin-top: 64px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid var(--signal-border);
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+
+    color: #555b63;
+}
+
+.connect-footer__signal {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.connect-footer__line {
+    width: 28px;
+    height: 1px;
+    background: #444950;
+}
+
+
+/* ---------------------------------------------------------
+   RTL
+   --------------------------------------------------------- */
+
+.is-rtl .connect-link {
+    grid-template-columns: auto 1fr 34px;
+}
+
+.is-rtl .connect-link:hover {
+    transform: translateX(-4px);
+}
+
+.is-rtl .connect-link__number {
+    order: 3;
+}
+
+.is-rtl .connect-link__content {
+    order: 2;
+}
+
+.is-rtl .connect-link__meta {
+    order: 1;
+}
+
+.is-rtl .connect-link__arrow {
+    transform: scaleX(-1);
+}
+
+.is-rtl .connect-link:hover .connect-link__arrow {
+    transform: scaleX(-1) translate(3px, -3px);
+}
+
+.is-rtl .connect-name,
+.is-rtl .connect-bio {
+    font-family: "Vazirmatn", sans-serif;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .connect-page {
+        padding: 50px 16px 70px;
+    }
+
+    .connect-identity {
+        margin-bottom: 38px;
+    }
+
+    .connect-avatar {
+        width: 78px;
+        height: 78px;
+    }
+
+    .connect-avatar img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .connect-name {
+        font-size: 32px;
+    }
+
+    .connect-bio {
+        font-size: 14px;
+    }
+
+    .connect-link {
+        grid-template-columns: 26px 1fr auto;
+        gap: 12px;
+        padding: 13px 13px;
+    }
+
+    .connect-link__title {
+        font-size: 14px;
+    }
+
+    .connect-link__subtitle {
+        font-size: 11px;
+    }
+
+    .connect-link__label {
+        display: none;
+    }
+
+    .connect-social {
+        flex-basis: calc(50% - 8px);
+    }
+
+    .connect-footer {
+        font-size: 8px;
+    }
+}
+</style>
+{% endblock %}
+
+
+{% block template %}
+
+<main class="connect-page">
+
+    <div class="connect-container">
+
+        <!-- =================================================
+             IDENTITY
+             ================================================= -->
+
+        <section class="connect-identity">
+
+            <div class="connect-status">
+                <span class="connect-status__dot"></span>
+                {% trans "PERSONAL SIGNAL / ONLINE" %}
+            </div>
+
+
+            <div class="connect-avatar">
+
+                <img
+                    src="{% static 'assets/logo-white.svg' %}"
+                    alt="Hossein RTR"
+                >
+
+            </div>
+
+
+            <h1 class="connect-name">
+                Seyed Hossein Hosseini
+            </h1>
+
+
+            <p class="connect-role">
+                Software Engineer · Systems Builder · Technical Leader
+            </p>
+
+
+            <p class="connect-bio">
+                I build software systems, AI-driven products and technical
+                projects where engineering meets execution.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PRIMARY
+             ================================================= -->
+
+        <section class="connect-section">
+
+            <div class="connect-section__heading">
+                <span class="connect-section__eyebrow">01</span>
+                <span class="connect-section__title">
+                    {% trans "PRIMARY SIGNAL" %}
+                </span>
+            </div>
+
+
+            <div class="connect-links">
+
+                <a
+                    href="{% url 'home' %}"
+                    class="connect-link connect-link--featured"
+                >
+
+                    <span class="connect-link__number">01</span>
+
+                    <span class="connect-link__content">
+
+                        <span class="connect-link__title">
+                            {% trans "Portfolio / Home" %}
+                        </span>
+
+                        <span class="connect-link__subtitle">
+                            {% trans "Projects, systems, experience and what I am building." %}
+                        </span>
+
+                    </span>
+
+                    <span class="connect-link__meta">
+                        <span class="connect-link__label">
+                            {% trans "START HERE" %}
+                        </span>
+
+                        <span class="connect-link__arrow">↗</span>
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="{% url 'blog:home' %}"
+                    class="connect-link"
+                >
+
+                    <span class="connect-link__number">02</span>
+
+                    <span class="connect-link__content">
+
+                        <span class="connect-link__title">
+                            {% trans "Engineering Journal" %}
+                        </span>
+
+                        <span class="connect-link__subtitle">
+                            {% trans "Technical notes, architecture, AI and engineering." %}
+                        </span>
+
+                    </span>
+
+                    <span class="connect-link__meta">
+                        <span class="connect-link__label">
+                            {% trans "BLOG" %}
+                        </span>
+
+                        <span class="connect-link__arrow">↗</span>
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="https://github.com/hosseinirtr"
+                    target="_blank"
+                    rel="noopener"
+                    class="connect-link"
+                >
+
+                    <span class="connect-link__number">03</span>
+
+                    <span class="connect-link__content">
+
+                        <span class="connect-link__title">
+                            GitHub
+                        </span>
+
+                        <span class="connect-link__subtitle">
+                            {% trans "Code, experiments and technical work." %}
+                        </span>
+
+                    </span>
+
+                    <span class="connect-link__meta">
+                        <span class="connect-link__label">
+                            {% trans "CODE" %}
+                        </span>
+
+                        <span class="connect-link__arrow">↗</span>
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CURRENT WORK
+             ================================================= -->
+
+        <section class="connect-section">
+
+            <div class="connect-section__heading">
+                <span class="connect-section__eyebrow">02</span>
+
+                <span class="connect-section__title">
+                    {% trans "CURRENT WORK" %}
+                </span>
+            </div>
+
+
+            <div class="connect-links">
+
+                <a
+                    href="#"
+                    class="connect-link"
+                >
+
+                    <span class="connect-link__number">01</span>
+
+                    <span class="connect-link__content">
+
+                        <span class="connect-link__title">
+                            Neerus
+                        </span>
+
+                        <span class="connect-link__subtitle">
+                            {% trans "Brain-computer interface and applied AI." %}
+                        </span>
+
+                    </span>
+
+                    <span class="connect-link__meta">
+
+                        <span class="connect-link__label">
+                            {% trans "PROJECT" %}
+                        </span>
+
+                        <span class="connect-link__arrow">↗</span>
+
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    class="connect-link"
+                >
+
+                    <span class="connect-link__number">02</span>
+
+                    <span class="connect-link__content">
+
+                        <span class="connect-link__title">
+                            Data Dynamics
+                        </span>
+
+                        <span class="connect-link__subtitle">
+                            {% trans "Autonomous systems and robotics." %}
+                        </span>
+
+                    </span>
+
+                    <span class="connect-link__meta">
+
+                        <span class="connect-link__label">
+                            {% trans "BUILDING" %}
+                        </span>
+
+                        <span class="connect-link__arrow">↗</span>
+
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SOCIAL
+             ================================================= -->
+
+        <section class="connect-section">
+
+            <div class="connect-section__heading">
+                <span class="connect-section__eyebrow">03</span>
+
+                <span class="connect-section__title">
+                    {% trans "ELSEWHERE" %}
+                </span>
+            </div>
+
+
+            <div class="connect-socials">
+
+                <a
+                    href="https://www.linkedin.com/in/seyed-hossein-hosseini-rtr"
+                    target="_blank"
+                    rel="noopener"
+                    class="connect-social"
+                >
+                    LinkedIn
+                </a>
+
+                <a
+                    href="https://x.com/"
+                    target="_blank"
+                    rel="noopener"
+                    class="connect-social"
+                >
+                    X / Twitter
+                </a>
+
+                <a
+                    href="https://instagram.com/"
+                    target="_blank"
+                    rel="noopener"
+                    class="connect-social"
+                >
+                    Instagram
+                </a>
+
+                <a
+                    href="mailto:Hosseini@Hosseiniindustries.dev"
+                    class="connect-social"
+                >
+                    Email
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="connect-footer">
+
+            <span>
+                RTR / PERSONAL HUB
+            </span>
+
+            <span class="connect-footer__signal">
+                <span class="connect-footer__line"></span>
+                {% trans "Built with Django" %}
+            </span>
+
+        </footer>
+
+    </div>
+
+</main>
+
+{% endblock %}

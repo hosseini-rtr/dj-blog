@@ -15,6 +15,17 @@
   content="{{ post.subtitle|default:post.title }}"
 >
 
+<meta property="og:title" content="{{ post.title }}">
+<meta property="og:description" content="{{ post.subtitle|default:post.title }}">
+<meta property="og:type" content="article">
+
+{% if post.image %}
+<meta
+  property="og:image"
+  content="{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}"
+>
+{% endif %}
+
 {% endblock %}
 
 
@@ -23,19 +34,6 @@
 <main class="blog-page article-page">
 
   <div class="blog-container">
-
-    <div class="article-nav">
-
-      <a href="{% url 'blog:home' %}">
-        ← {% trans "Back to all posts" %}
-      </a>
-
-      <span class="mono">
-        FIELD NOTE / {{ post.id|stringformat:"03d" }}
-      </span>
-
-    </div>
-
 
     <header class="article-header">
 
@@ -129,10 +127,182 @@
 
         {{ post.content|safe }}
 
+        <!-- =================================================
+             SHARE / SHORT URL
+             ================================================= -->
+
+        {% if short_url %}
+
+          {% with short_path="/s/"|add:short_url.short_code %}
+          
+            <section class="article-signal">
+
+              <div class="article-signal__header">
+
+                <span class="article-signal__label">
+                  SIGNAL / SHARE
+                </span>
+
+                <span class="article-signal__status">
+                  DISTRIBUTE THIS NOTE
+                </span>
+
+              </div>
+
+
+              <div class="article-shortlink">
+
+                <span class="article-shortlink__value" id="short-url">
+                  {{ request.scheme }}://{{ request.get_host }}{{ short_path }}
+                </span>
+
+                <button
+                  type="button"
+                  class="article-share-btn article-share-btn--copy"
+                  id="copy-short-url"
+                  data-url="{{ request.scheme }}://{{ request.get_host }}{{ short_path }}"
+                >
+                  {% trans "COPY LINK" %}
+                </button>
+
+              </div>
+
+
+              <div class="article-share-row">
+
+                <a
+                  class="article-share-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.scheme }}://{{ request.get_host }}{{ short_path|urlencode }}"
+                >
+                  LINKEDIN
+                </a>
+
+
+                <a
+                  class="article-share-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://twitter.com/intent/tweet?url={{ request.scheme }}://{{ request.get_host }}{{ short_path|urlencode }}&text={{ post.title|urlencode }}"
+                >
+                  X
+                </a>
+
+
+                <a
+                  class="article-share-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://t.me/share/url?url={{ request.scheme }}://{{ request.get_host }}{{ short_path|urlencode }}&text={{ post.title|urlencode }}"
+                >
+                  TELEGRAM
+                </a>
+
+
+                <a
+                  class="article-share-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://wa.me/?text={{ post.title|urlencode }}%20{{ request.scheme }}://{{ request.get_host }}{{ short_path|urlencode }}"
+                >
+                  WHATSAPP
+                </a>
+                <button
+                  type="button"
+                  class="article-share-btn"
+                  id="native-share"
+                  data-share-url="{% if short_url %}{{ request.scheme }}://{{ request.get_host }}/s/{{ short_url.short_code }}{% else %}{{ request.build_absolute_uri }}{% endif %}"
+                >
+                  {% trans "SHARE" %}
+                </button>
+
+              </div>
+
+            </section>
+
+          {% endwith %}
+
+        {% endif %}
+
       </article>
 
     </div>
 
+
+    <!-- =====================================================
+         COMMENTS
+         ===================================================== -->
+
+    {% with comments=post.comments.all %}
+
+      <section
+        class="article-comments"
+        id="comments"
+      >
+
+        <div class="article-comments__header">
+
+          <h2 class="article-comments__title">
+            {% trans "Discussion" %}
+          </h2>
+
+          <span class="article-comments__count">
+            {{ comments|length|stringformat:"02d" }}
+            /
+            {% trans "COMMENTS" %}
+          </span>
+
+        </div>
+
+
+        {% if comments %}
+
+          <div class="comment-list">
+
+            {% for comment in comments %}
+
+              <article class="comment {% if comment.parent %}comment--reply{% endif %}">
+
+                <div class="comment__meta">
+
+                  <span class="comment__author">
+                    {{ comment.author.get_full_name|default:comment.author.username }}
+                  </span>
+
+                  <time class="comment__date">
+                    {{ comment.created_at|date:"Y.m.d / H:i" }}
+                  </time>
+
+                </div>
+
+
+                <p class="comment__body">
+                  {{ comment.content }}
+                </p>
+
+              </article>
+
+            {% endfor %}
+
+          </div>
+
+        {% else %}
+
+          <div class="article-comments__empty">
+            {% trans "No comments yet." %}
+          </div>
+
+        {% endif %}
+
+      </section>
+
+    {% endwith %}
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
 
     <footer class="article-footer">
 
@@ -149,5 +319,82 @@
   </div>
 
 </main>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const nativeShare = document.getElementById("native-share");
+
+  if (nativeShare && navigator.share) {
+
+    nativeShare.hidden = false;
+
+    nativeShare.addEventListener("click", async function () {
+
+      const shareUrl = this.dataset.shareUrl;
+
+      try {
+
+        await navigator.share({
+          title: "{{ post.title|escapejs }}",
+          text: "{{ post.subtitle|default:post.title|escapejs }}",
+          url: shareUrl
+        });
+
+      } catch (error) {
+        // User cancelled the share dialog.
+      }
+
+    });
+  }
+
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const button = document.getElementById("copy-short-url");
+
+  if (!button) return;
+
+  button.addEventListener("click", async function () {
+
+    const url = this.dataset.url;
+    const original = this.textContent;
+
+    try {
+
+      await navigator.clipboard.writeText(url);
+
+      this.textContent = "{% trans 'COPIED' %}";
+
+      setTimeout(() => {
+        this.textContent = original;
+      }, 1500);
+
+    } catch (error) {
+
+      const input = document.createElement("input");
+
+      input.value = url;
+      document.body.appendChild(input);
+
+      input.select();
+      document.execCommand("copy");
+
+      input.remove();
+
+      this.textContent = "{% trans 'COPIED' %}";
+
+      setTimeout(() => {
+        this.textContent = original;
+      }, 1500);
+
+    }
+
+  });
+
+});
+</script>
 
 {% endblock %}

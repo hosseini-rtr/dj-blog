@@ -1,0 +1,565 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>English? Yeah, I Know Her.</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --black: #111111;
+            --white: #f8f7f2;
+            --yellow: #f5e642;
+            --pink: #ff4f81;
+            --blue: #5c5cff;
+            --green: #65e572;
+            --border: 3px solid var(--black);
+            --shadow: 7px 7px 0 var(--black);
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 15% 15%, #ffffff 0 2px, transparent 3px),
+                radial-gradient(circle at 85% 75%, #ffffff 0 2px, transparent 3px),
+                var(--yellow);
+            background-size: 28px 28px, 35px 35px, auto;
+            color: var(--black);
+            font-family:
+                Arial,
+                "Tahoma",
+                sans-serif;
+            padding: 28px 16px 60px;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "HELLO";
+            position: fixed;
+            left: -45px;
+            top: 35%;
+            font-size: 140px;
+            font-weight: 1000;
+            opacity: .07;
+            transform: rotate(-90deg);
+            pointer-events: none;
+        }
+
+        .page {
+            width: min(680px, 100%);
+            margin: auto;
+            position: relative;
+        }
+
+        /* ---------- TOP MARQUEE ---------- */
+
+        .marquee {
+            background: var(--black);
+            color: var(--yellow);
+            border: var(--border);
+            box-shadow: var(--shadow);
+            padding: 10px 15px;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-bottom: 32px;
+            transform: rotate(-1deg);
+        }
+
+        .marquee span {
+            display: inline-block;
+            font-weight: 900;
+            animation: marquee 14s linear infinite;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(50%);
+            }
+        }
+
+        /* ---------- PROFILE ---------- */
+
+        .profile {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+     .avatar {
+    width: 112px;
+    height: 112px;
+    margin: 0 auto 20px;
+    border: 3px solid var(--black);
+    background: var(--pink);
+    box-shadow: 7px 7px 0 var(--black);
+    display: grid;
+    place-items: center;
+    transform: rotate(4deg);
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.15) contrast(1.05);
+}
+
+        .avatar::after {
+            content: "👀";
+            position: absolute;
+            font-size: 25px;
+            right: -22px;
+            top: -20px;
+            transform: rotate(12deg);
+        }
+
+        .profile h1 {
+            font-size: clamp(36px, 10vw, 68px);
+            line-height: .9;
+            font-weight: 1000;
+            letter-spacing: -4px;
+            text-transform: uppercase;
+        }
+
+        .profile h1 span {
+            display: inline-block;
+            background: var(--black);
+            color: var(--yellow);
+            padding: 5px 12px;
+            transform: rotate(-2deg);
+            margin-top: 8px;
+        }
+
+        .bio {
+            margin: 22px auto 0;
+            max-width: 500px;
+            font-size: 17px;
+            line-height: 1.8;
+            font-weight: 700;
+        }
+
+        .bio strong {
+            background: var(--pink);
+            padding: 2px 7px;
+        }
+
+        /* ---------- BADGE ---------- */
+
+        .badge {
+            display: inline-block;
+            background: var(--green);
+            border: var(--border);
+            box-shadow: 4px 4px 0 var(--black);
+            padding: 7px 14px;
+            margin-top: 18px;
+            font-weight: 1000;
+            transform: rotate(2deg);
+        }
+
+        /* ---------- LINKS ---------- */
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .link {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-height: 72px;
+            padding: 15px 18px;
+            border: var(--border);
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition:
+                transform .15s ease,
+                box-shadow .15s ease;
+            font-weight: 900;
+        }
+
+        .link:nth-child(2) {
+            background: var(--pink);
+            transform: rotate(1deg);
+        }
+
+        .link:nth-child(3) {
+            background: var(--blue);
+            color: white;
+            transform: rotate(-1deg);
+        }
+
+        .link:nth-child(4) {
+            background: var(--green);
+            transform: rotate(.7deg);
+        }
+
+        .link:nth-child(5) {
+            background: var(--white);
+            transform: rotate(-.7deg);
+        }
+
+        .link:hover {
+            transform: translate(-4px, -4px) rotate(0deg);
+            box-shadow: 11px 11px 0 var(--black);
+        }
+
+        .link:active {
+            transform: translate(5px, 5px);
+            box-shadow: 2px 2px 0 var(--black);
+        }
+
+        .icon {
+            width: 42px;
+            height: 42px;
+            flex: 0 0 42px;
+            border: 3px solid var(--black);
+            background: var(--yellow);
+            display: grid;
+            place-items: center;
+            font-size: 21px;
+        }
+
+        .link-content {
+            flex: 1;
+            text-align: right;
+        }
+
+        .link-title {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 3px;
+        }
+
+        .link-description {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            opacity: .8;
+        }
+
+        .arrow {
+            font-size: 28px;
+            font-weight: 1000;
+        }
+
+        /* ---------- SPECIAL CARD ---------- */
+
+        .special {
+            margin: 42px 0;
+            padding: 25px;
+            background: var(--black);
+            color: var(--white);
+            border: var(--border);
+            box-shadow: 10px 10px 0 var(--pink);
+            transform: rotate(1deg);
+        }
+
+        .special small {
+            display: block;
+            color: var(--yellow);
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .special h2 {
+            font-size: clamp(25px, 7vw, 42px);
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .special p {
+            font-size: 14px;
+            line-height: 1.9;
+            color: #ddd;
+        }
+
+        .special .stamp {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 7px 12px;
+            background: var(--pink);
+            color: var(--black);
+            border: 2px solid var(--white);
+            font-weight: 1000;
+            transform: rotate(-3deg);
+        }
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            text-align: center;
+            margin-top: 55px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        footer .x {
+            font-size: 20px;
+        }
+
+        /* ---------- FLOATING DOODLES ---------- */
+
+        .doodle {
+            position: fixed;
+            pointer-events: none;
+            font-weight: 1000;
+            z-index: -1;
+        }
+
+        .doodle.one {
+            right: 5%;
+            top: 20%;
+            font-size: 45px;
+            transform: rotate(15deg);
+        }
+
+        .doodle.two {
+            left: 6%;
+            bottom: 15%;
+            font-size: 35px;
+            transform: rotate(-15deg);
+        }
+
+        .doodle.three {
+            right: 10%;
+            bottom: 5%;
+            font-size: 20px;
+            transform: rotate(5deg);
+        }
+
+        /* ---------- MOBILE ---------- */
+
+        @media (max-width: 500px) {
+            body {
+                padding: 18px 13px 45px;
+            }
+
+            .marquee {
+                margin-bottom: 27px;
+            }
+
+            .profile h1 {
+                letter-spacing: -2px;
+            }
+
+            .link {
+                min-height: 68px;
+                padding: 12px 13px;
+            }
+
+            .link-title {
+                font-size: 16px;
+            }
+
+            .link-description {
+                font-size: 11px;
+            }
+
+            .special {
+                padding: 20px;
+            }
+
+            .doodle {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="doodle one">?</div>
+    <div class="doodle two">A+</div>
+    <div class="doodle three">very nice.</div>
+
+    <main class="page">
+
+        <div class="marquee">
+            <span>
+                ENGLISH • ENGLISH • ENGLISH • NO, "I AM AGREE" IS NOT CORRECT •
+                ENGLISH • ENGLISH • ENGLISH •
+            </span>
+        </div>
+
+
+        <section class="profile">
+
+<div class="avatar">
+    <img src="{% static 'images/afshin.jpeg' %}" alt="Afshin">
+</div>
+
+            <h1>
+                English
+                <span>Teacher.</span>
+            </h1>
+
+            <p class="bio">
+                من انگلیسی درس میدم،
+                <strong>ولی قول نمیدم گرامرت رو قضاوت نکنم.</strong>
+                <br>
+                Speaking، Listening، Vocabulary و کمی هم
+                existential crisis.
+            </p>
+
+            <div class="badge">
+                🟢 Currently pretending to be organized
+            </div>
+
+        </section>
+
+
+        <section class="links">
+
+            <a class="link" href="#" target="_blank">
+                <div class="icon">📚</div>
+
+                <div class="link-content">
+                    <span class="link-title">
+                        کلاس‌های من
+                    </span>
+
+                    <span class="link-description">
+                        جایی که "I have went" تبدیل به "I have gone" میشه.
+                    </span>
+                </div>
+
+                <div class="arrow">←</div>
+            </a>
+
+
+            <a class="link" href="#" target="_blank">
+                <div class="icon">📸</div>
+
+                <div class="link-content">
+                    <span class="link-title">
+                        Instagram
+                    </span>
+
+                    <span class="link-description">
+                        انگلیسی یاد بگیر، بعد برو استوری بذار.
+                    </span>
+                </div>
+
+                <div class="arrow">←</div>
+            </a>
+
+
+            <a class="link" href="#" target="_blank">
+                <div class="icon">🎧</div>
+
+                <div class="link-content">
+                    <span class="link-title">
+                        Listening Practice
+                    </span>
+
+                    <span class="link-description">
+                        بله، انگلیسی واقعی همینقدر نامفهومه.
+                    </span>
+                </div>
+
+                <div class="arrow">←</div>
+            </a>
+
+
+            <a class="link" href="#" target="_blank">
+                <div class="icon">🧠</div>
+
+                <div class="link-content">
+                    <span class="link-title">
+                        Vocabulary
+                    </span>
+
+                    <span class="link-description">
+                        برای وقتی که "nice" دیگه جواب هیچ سوالی نیست.
+                    </span>
+                </div>
+
+                <div class="arrow">←</div>
+            </a>
+
+
+            <a class="link" href="#" target="_blank">
+                <div class="icon">💬</div>
+
+                <div class="link-content">
+                    <span class="link-title">
+                        WhatsApp / Telegram
+                    </span>
+
+                    <span class="link-description">
+                        سوال داری؟ بپرس. فقط لطفاً ساعت ۳ صبح نه.
+                    </span>
+                </div>
+
+                <div class="arrow">←</div>
+            </a>
+
+        </section>
+
+
+        <section class="special">
+
+            <small>
+                🚨 PUBLIC SERVICE ANNOUNCEMENT
+            </small>
+
+            <h2>
+                Your English<br>
+                is not "bad".
+            </h2>
+
+            <p>
+                فقط ممکنه برای ساختن یک جمله ساده،
+                ۴ دقیقه به سقف نگاه کنی،
+                سه بار Google Translate باز کنی،
+                و در نهایت بگی:
+                <br>
+                <strong>"You know... what I mean."</strong>
+            </p>
+
+            <div class="stamp">
+                WE CAN FIX THIS.
+            </div>
+
+        </section>
+
+
+        <footer>
+            <div class="x">✦</div>
+            Made with English, caffeine & questionable grammar jokes.
+            <br>
+            © 2026 — Your Favourite English Teacher
+        </footer>
+
+    </main>
+
+</body>
+</html>
