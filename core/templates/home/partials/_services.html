@@ -1,17 +1,49 @@
 {% load i18n %}
-<section class="services" id="services">
-  <div class="section-inner">
-    <p class="eyebrow mono-tag">{% trans "SYS.SERVICES / 06" %}</p>
-    <h2 class="section-title" data-reveal>{% trans "How I can help" %}</h2>
+<section class="rtr-services" id="services">
+  <div class="rtr-container">
 
-    <div class="services__grid">
-      {% for service in services %}
-      <div class="service-card" data-reveal>
-        <span class="service-card__glyph" aria-hidden="true">{{ service.glyph|default:"◆" }}</span>
-        <h3>{{ service.title }}</h3>
-        <p>{{ service.description }}</p>
-      </div>
-      {% endfor %}
+    <div class="rtr-section-meta">
+      <span>05</span>
+      <span>{% trans "HOW I CAN HELP" %}</span>
     </div>
+
+    <div class="rtr-services__heading">
+      <h2>
+        From technical
+        <span>problem to outcome.</span>
+      </h2>
+    </div>
+
+    <div class="rtr-services__grid">
+
+      <div>
+        <span>01</span>
+        <h3>Build</h3>
+        <p>
+          Turn an idea or technical requirement
+          into a working system.
+        </p>
+      </div>
+
+      <div>
+        <span>02</span>
+        <h3>Architect</h3>
+        <p>
+          Evaluate complexity, constraints and
+          architecture before expensive decisions.
+        </p>
+      </div>
+
+      <div>
+        <span>03</span>
+        <h3>Improve</h3>
+        <p>
+          Find bottlenecks, unnecessary complexity
+          and technical risks in existing systems.
+        </p>
+      </div>
+
+    </div>
+
   </div>
 </section>

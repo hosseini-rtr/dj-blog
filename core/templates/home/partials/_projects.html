@@ -1,31 +1,86 @@
 {% load i18n %}
-<section class="projects" id="projects">
-  <div class="section-inner">
-    <p class="eyebrow mono-tag">{% trans "SYS.PROJECTS / 05" %}</p>
-    <h2 class="section-title" data-reveal>{% trans "Selected work" %}</h2>
+<section class="rtr-work" id="work">
+  <div class="rtr-container">
 
-    <div class="projects__list">
-      {% for project in projects %}
-      <article class="project-card" data-reveal>
-        <div class="project-card__index mono-tag">{{ forloop.counter|stringformat:"02d" }}</div>
-        <div class="project-card__body">
-          <h3>{{ project.name }}</h3>
-          <p>{{ project.description }}</p>
-          <div class="tool-chips tool-chips--small">
-            {% for tag in project.tags %}
-            <span class="tool-chip">{{ tag }}</span>
-            {% endfor %}
-          </div>
-        </div>
-        <div class="project-card__link">
-          {% if project.url %}
-          <a href="{{ project.url }}" target="_blank" rel="noopener">{% trans "View" %} ↗</a>
-          {% else %}
-          <span class="mono-tag">{% trans "Private" %}</span>
-          {% endif %}
-        </div>
-      </article>
-      {% endfor %}
+    <div class="rtr-section-meta">
+      <span>02</span>
+      <span>{% trans "SELECTED WORK" %}</span>
     </div>
+
+    <div class="rtr-work__intro">
+      <h2>Selected work.</h2>
+      <p>
+        A few systems, products and experiments
+        built around difficult technical problems.
+      </p>
+    </div>
+
+    <div class="rtr-project-list">
+
+      <a href="#" class="rtr-project">
+
+        <div class="rtr-project__number">01</div>
+
+        <div class="rtr-project__main">
+          <div class="rtr-project__type">
+            AI / COMPUTER VISION
+          </div>
+
+          <h3>Airctl</h3>
+
+          <p>
+            Gesture-driven interaction system using
+            computer vision and real-time inference.
+          </p>
+        </div>
+
+        <div class="rtr-project__arrow">↗</div>
+
+      </a>
+
+      <a href="#" class="rtr-project">
+
+        <div class="rtr-project__number">02</div>
+
+        <div class="rtr-project__main">
+          <div class="rtr-project__type">
+            BCI / MACHINE LEARNING
+          </div>
+
+          <h3>Neerus</h3>
+
+          <p>
+            A brain-computer interface platform combining
+            biosignal acquisition and machine learning.
+          </p>
+        </div>
+
+        <div class="rtr-project__arrow">↗</div>
+
+      </a>
+
+      <a href="#" class="rtr-project">
+
+        <div class="rtr-project__number">03</div>
+
+        <div class="rtr-project__main">
+          <div class="rtr-project__type">
+            AUTONOMOUS SYSTEMS
+          </div>
+
+          <h3>Data Dynamics</h3>
+
+          <p>
+            Autonomous vehicle systems developed around
+            perception, control and distributed computation.
+          </p>
+        </div>
+
+        <div class="rtr-project__arrow">↗</div>
+
+      </a>
+
+    </div>
+
   </div>
 </section>

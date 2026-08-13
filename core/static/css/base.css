@@ -6,11 +6,13 @@
   --text: #e7eaef;
   --text-dim: #8b93a1;
   --accent: #4fd1ff;
-  --accent-2: #ffb020;
+  --accent-2: #646D7E;
   --line: rgba(255, 255, 255, .08);
   --line-strong: rgba(255, 255, 255, .16);
   --radius: 14px;
-  --font-display: 'Orbitron', 'Rajdhani', sans-serif;
+  /* font-family: ; */
+
+  --font-display: "DM Sans", sans-serif;
   --font-body: 'Rajdhani', 'DM Sans', sans-serif;
   --font-mono: 'DM Mono', monospace;
   --ease: cubic-bezier(.16, .84, .44, 1);
@@ -268,6 +270,51 @@ button {
   color: #05070a
 }
 
+.btn-liquid {
+  position: relative;
+  background: #111;
+  color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* btn-shiny */
+.btn-shiny {
+  position: relative;
+  background: #161616;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 16px 36px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-shiny::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-shiny:hover {
+  border-color: #555;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-shiny:hover::before {
+  left: 100%;
+}
+
 .nav-toggle {
   display: none;
   width: 38px;
@@ -442,4 +489,147 @@ button {
 .to-top:hover {
   border-color: var(--accent);
   color: var(--accent)
+}
+
+
+
+.rtr-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+
+  background: rgba(17, 17, 17, .82);
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid #2c2c2a;
+}
+
+.rtr-header__inner {
+  width: min(1240px, calc(100% - 48px));
+  height: 76px;
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rtr-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #f5f4ef;
+  text-decoration: none;
+}
+
+.rtr-brand__mark {
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+
+  border: 1px solid #ff5f38;
+
+  color: #ff5f38;
+
+  font: 500 10px/1 "DM Mono", monospace;
+  letter-spacing: .08em;
+}
+
+.rtr-brand__name {
+  font-size: 12px;
+  letter-spacing: .03em;
+}
+
+.rtr-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.rtr-nav a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #858680;
+  text-decoration: none;
+
+  font-size: 11px;
+  letter-spacing: .02em;
+
+  transition: color .25s ease;
+}
+
+.rtr-nav a span {
+  color: #4d4d49;
+  font: 10px "DM Mono", monospace;
+}
+
+.rtr-nav a:hover {
+  color: #f5f4ef;
+}
+
+.rtr-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.rtr-language {
+  display: flex;
+  gap: 3px;
+}
+
+.rtr-language button {
+  border: 0;
+  background: transparent;
+
+  color: #62635e;
+
+  font: 10px "DM Mono", monospace;
+
+  padding: 5px;
+
+  cursor: pointer;
+}
+
+.rtr-language button.is-active {
+  color: #ff6038b5;
+}
+
+.rtr-menu {
+  display: none;
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #2c2c2a;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.rtr-menu span {
+  display: block;
+  width: 15px;
+  height: 1px;
+  margin: 4px auto;
+  background: #f5f4ef;
+}
+
+@media (max-width: 850px) {
+
+  .rtr-nav {
+    display: none;
+  }
+
+  .rtr-menu {
+    display: block;
+  }
+
+  .rtr-brand__name {
+    display: none;
+  }
 }

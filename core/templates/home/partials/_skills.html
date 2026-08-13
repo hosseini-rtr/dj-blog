@@ -1,37 +1,58 @@
 {% load i18n %}
-<section class="skills" id="skills">
-  <div class="section-inner">
-    <p class="eyebrow mono-tag">{% trans "SYS.SKILLS / 03" %}</p>
-    <h2 class="section-title" data-reveal>{% trans "Stack & specialization" %}</h2>
+<section class="rtr-capabilities" id="capabilities">
+  <div class="rtr-container">
 
-    <div class="skills__grid">
-      {% for group in skills %}
-      <div class="skill-card" data-reveal>
-        <h3 class="skill-card__title">{{ group.category }}</h3>
-        <ul class="skill-card__list">
-          {% for item in group.items %}
-          <li class="skill-bar">
-            <div class="skill-bar__head">
-              <span>{{ item.name }}</span>
-              <span class="mono-tag">{{ item.level }}%</span>
-            </div>
-            <div class="skill-bar__track">
-              <div class="skill-bar__fill" data-level="{{ item.level }}"></div>
-            </div>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endfor %}
+    <div class="rtr-section-meta">
+      <span>03</span>
+      <span>{% trans "CAPABILITIES" %}</span>
     </div>
 
-    <div class="skills__tools" data-reveal>
-      <span class="mono-tag">{% trans "ALSO IN THE TOOLBOX" %}</span>
-      <div class="tool-chips">
-        {% for tool in tools %}
-        <span class="tool-chip">{{ tool }}</span>
-        {% endfor %}
-      </div>
+    <div class="rtr-capabilities__heading">
+      <h2>
+        Technical depth
+        <span>with context.</span>
+      </h2>
     </div>
+
+    <div class="rtr-capability-list">
+
+      <article>
+        <span>01</span>
+        <div>
+          <h3>Systems Engineering</h3>
+          <p>
+            Backend architecture, distributed systems,
+            data flows, reliability and performance.
+          </p>
+        </div>
+        <small>PYTHON · DJANGO · POSTGRESQL · REDIS</small>
+      </article>
+
+      <article>
+        <span>02</span>
+        <div>
+          <h3>AI & Intelligent Systems</h3>
+          <p>
+            Designing practical AI systems where models
+            become part of a larger product or workflow.
+          </p>
+        </div>
+        <small>ML · COMPUTER VISION · LLM · AUTOMATION</small>
+      </article>
+
+      <article>
+        <span>03</span>
+        <div>
+          <h3>Technical Architecture</h3>
+          <p>
+            Choosing the appropriate architecture instead
+            of automatically reaching for complexity.
+          </p>
+        </div>
+        <small>ARCHITECTURE · TRADE-OFFS · SCALE</small>
+      </article>
+
+    </div>
+
   </div>
 </section>

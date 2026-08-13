@@ -1,21 +1,77 @@
-{% extends "../base/3-col-template.html" %}
+{% extends "base/base.html" %}
+{% load static %}
+{% load i18n %}
 
-{% block content-left %}
-{% include "base/secondary-navbar.html" %}
+{% block title %}
+#{{ view.kwargs.tag }} — {% trans "Blog" %}
 {% endblock %}
 
-{% block content-mid %}
-
-<div class="center mx-auto" style="max-width: 683px">
-    <h1 class="fs-1 fw-bold pb-5">{{tag|title}}</h1>
-    {% include 'blog/components/post-list-elements-tags.html' %}
-</div>
-
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
 {% endblock %}
 
-{% block content-right %}
-{% load sidebar_tag_cloud %}
-{% sidebar_tag_cloud %}
+{% block template %}
 
+<main class="blog-page">
+
+  <div class="blog-container">
+
+    <section class="topic-page">
+
+      <div class="topic-page__top">
+
+        <a href="{% url 'blog:home' %}">
+          ← {% trans "All posts" %}
+        </a>
+
+        <span class="mono">
+          BLOG / TOPIC
+        </span>
+
+      </div>
+
+
+      <div class="topic-page__hero">
+
+        <span class="eyebrow">
+          {% trans "TOPIC" %}
+        </span>
+
+        <h1>#{{ view.kwargs.tag }}</h1>
+
+        <p>
+          {% trans "Articles and notes related to this topic." %}
+        </p>
+
+      </div>
+
+
+      <div class="blog-posts">
+
+        <div class="blog-posts__header">
+
+          <h2>
+            {% trans "Articles" %}
+          </h2>
+
+          <span class="mono">
+            {{ paginator.count }} {% trans "posts" %}
+          </span>
+
+        </div>
+
+        <div class="post-list">
+
+          {% include "blog/components/post-list-elements.html" %}
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
 
 {% endblock %}

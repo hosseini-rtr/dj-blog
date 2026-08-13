@@ -1,40 +1,62 @@
 {% load i18n %}
-<section class="about" id="about">
-  <div class="section-inner">
-    <p class="eyebrow mono-tag">{% trans "SYS.ABOUT / 02" %}</p>
+<section class="rtr-about" id="about">
+  <div class="rtr-container">
 
-    <div class="about__grid">
-      <div class="about__lead">
-        <h2 class="section-title" data-reveal>
-          {% blocktrans %}Engineering things that have to work the first time.{% endblocktrans %}
+    <div class="rtr-section-meta">
+      <span>01</span>
+      <span>{% trans "ABOUT" %}</span>
+    </div>
+
+    <div class="rtr-about__grid">
+
+      <div class="rtr-about__statement">
+        <h2>
+          I work on the problems
+          <span>that don't have obvious answers.</span>
         </h2>
       </div>
 
-      {% blocktrans asvar default_paragraph_1 %}I'm a software engineer who spends most of my time in the unglamorous middle of a system — the part between the idea and the thing that runs at 3am without paging anyone. Distributed systems, resilient APIs, and infrastructure that gets out of the way.{% endblocktrans %}
-      {% blocktrans asvar default_paragraph_2 %}Before this I built prototypes fast and broke them faster, which taught me the difference between a demo and a system you can trust. These days I care more about the second one.{% endblocktrans %}
-      <div class="about__body">
-        <p data-reveal>
-          {{ about.paragraph_1|default:default_paragraph_1 }}
-        </p>
-        <p data-reveal>
-          {{ about.paragraph_2|default:default_paragraph_2 }}
+      <div class="rtr-about__content">
+
+        <p class="lead">
+          I'm a software engineer focused on systems,
+          AI and technically difficult products.
         </p>
 
-        <ul class="about__facts">
-          <li>
-            <span class="fact__value" data-count="{{ about.years_experience|default:12 }}">0</span>
-            <span class="fact__label">{% trans "Years shipping software" %}</span>
-          </li>
-          <li>
-            <span class="fact__value" data-count="{{ about.projects_shipped|default:47 }}">0</span>
-            <span class="fact__label">{% trans "Systems shipped to production" %}</span>
-          </li>
-          <li>
-            <span class="fact__value" data-count="{{ about.teams_led|default:6 }}">0</span>
-            <span class="fact__label">{% trans "Engineering teams led" %}</span>
-          </li>
-        </ul>
+        <p>
+          My work sits between engineering and decision making:
+          understanding the real constraint, choosing the right
+          level of complexity, and turning an idea into something
+          that can actually operate in the real world.
+        </p>
+
+        <div class="rtr-about__facts">
+
+          <div>
+            <span>01</span>
+            <strong>Systems</strong>
+          </div>
+
+          <div>
+            <span>02</span>
+            <strong>AI</strong>
+          </div>
+
+          <div>
+            <span>03</span>
+            <strong>Backend</strong>
+          </div>
+
+          <div>
+            <span>04</span>
+            <strong>Autonomous Systems</strong>
+          </div>
+
+        </div>
+
       </div>
+
     </div>
+
   </div>
 </section>

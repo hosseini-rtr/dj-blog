@@ -1,0 +1,111 @@
+{% load static %}
+{% load i18n %}
+
+<div class="blog-page">
+
+  <div class="blog-page__veil" aria-hidden="true"></div>
+
+  <div class="blog-container">
+
+    <!-- TOP META -->
+    <div class="blog-topline">
+
+      <div class="blog-topline__left">
+        <span class="blog-index">BLOG / 01</span>
+        <span class="blog-status">
+          <i></i>
+          {% trans "FIELD NOTES / ONLINE" %}
+        </span>
+      </div>
+
+      <div class="blog-topline__right">
+        <span>{% trans "ENGINEERING · AI · SYSTEMS" %}</span>
+      </div>
+
+    </div>
+
+
+    <!-- BLOG HEADER -->
+    <header class="blog-header">
+
+      <div class="blog-header__number">
+        <span>R·TR</span>
+        <strong>NOTES</strong>
+      </div>
+
+      <div class="blog-header__main">
+
+        <p class="blog-kicker">
+          {% trans "THOUGHTS, SYSTEMS & FIELD NOTES" %}
+        </p>
+
+        <h1>
+          {% block blog_title %}
+            {% trans "Field Notes" %}
+          {% endblock %}
+        </h1>
+
+        <p class="blog-header__description">
+          {% block blog_description %}
+            {% trans "Writing about software engineering, AI, distributed systems, architecture and the decisions behind building real systems." %}
+          {% endblock %}
+        </p>
+
+      </div>
+
+    </header>
+
+
+    <!-- NAV -->
+    <nav class="blog-nav" aria-label="{% trans 'Blog navigation' %}">
+
+      <a
+        href="{% url 'blog:home' %}"
+        class="{% if request.resolver_match.url_name == 'home' %}is-active{% endif %}"
+      >
+        <span>01</span>
+        {% trans "All notes" %}
+      </a>
+
+      <a href="{% url 'blog:search' %}">
+        <span>02</span>
+        {% trans "Search" %}
+      </a>
+
+      <a href="{% url 'home' %}">
+        <span>03</span>
+        {% trans "Portfolio" %}
+      </a>
+
+    </nav>
+
+
+    {% block blog_content %}{% endblock %}
+
+
+    <!-- FOOTER SIGNAL -->
+    <div class="blog-footer-signal">
+
+      <span>
+        {% trans "END OF TRANSMISSION" %}
+      </span>
+
+      <div class="blog-signal-bars" aria-hidden="true">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+
+      <span>
+        {% now "Y" %}
+      </span>
+
+    </div>
+
+  </div>
+
+</div>

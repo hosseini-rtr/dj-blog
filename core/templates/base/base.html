@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0a0c10">
   <title>{% block title %}{% trans "Seyed Hossein Hosseini — Software Engineer" %}{% endblock %}</title>
-  {% block extra_head %}{% endblock %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Syne:wght@400;600;700,800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="{% static 'css/base.css' %}" rel="stylesheet">
+  <link href="{% static 'css/components/uv-button.css' %}" rel="stylesheet">
   <link rel="icon" href="{% static 'assets/logo-white.svg' %}">
   <link rel="shortcut icon" href="{% static 'assets/logo-white.svg' %}">
+  {% block extra_head %}{% endblock %}
 </head>
 <body class="{% if LANGUAGE_BIDI %}is-rtl{% else %}is-ltr{% endif %} lang-{{ LANGUAGE_CODE }}">
   <div class="grid-veil" aria-hidden="true"></div>
@@ -27,42 +28,98 @@
         <span class="brand__name">Seyed Hossein Hosseini</span>
       </a>
 
-      <nav class="main-nav" id="main-nav" aria-label="{% trans 'Primary navigation' %}">
-        <a href="#about"><span class="nav-tag">01</span>{% trans "About" %}</a>
-        <a href="#skills"><span class="nav-tag">02</span>{% trans "Skills" %}</a>
-        <a href="#groups"><span class="nav-tag">03</span>{% trans "Experience" %}</a>
-        <a href="#projects"><span class="nav-tag">04</span>{% trans "Projects" %}</a>
-        <a href="#services"><span class="nav-tag">05</span>{% trans "Services" %}</a>
-        <a href="{% url 'blog:home' %}"><span class="nav-tag">06</span>{% trans "Blog" %}</a>
-        <a href="#contact"><span class="nav-tag">07</span>{% trans "Contact" %}</a>
-      </nav>
+    <nav class="rtr-nav" id="main-nav">
+      <a href="#about">
+        <span>01</span>
+        {% trans "About" %}
+      </a>
 
-      <div class="header-actions">
-        <form action="{% url 'set_language' %}" method="post" class="lang-switch" id="lang-switch">
-          {% csrf_token %}
-          <input name="next" type="hidden" value="{{ request.path }}">
-          <div class="lang-switch__group" role="group" aria-label="{% trans 'Select language' %}">
-            <button type="submit" name="language" value="en" class="lang-btn {% if LANGUAGE_CODE == 'en' %}is-active{% endif %}">EN</button>
-            <button type="submit" name="language" value="fa" class="lang-btn {% if LANGUAGE_CODE == 'fa' %}is-active{% endif %}">FA</button>
-            <button type="submit" name="language" value="it" class="lang-btn {% if LANGUAGE_CODE == 'it' %}is-active{% endif %}">IT</button>
-          </div>
-        </form>
-        <button class="nav-toggle" id="nav-toggle" aria-label="{% trans 'Toggle menu' %}" aria-expanded="false">
-          <span></span><span></span><span></span>
+      <a href="#work">
+        <span>02</span>
+        {% trans "Work" %}
+      </a>
+
+      <a href="#capabilities">
+        <span>03</span>
+        {% trans "Capabilities" %}
+      </a>
+
+      <a href="#experience">
+        <span>04</span>
+        {% trans "Experience" %}
+      </a>
+
+      <a href="#contact">
+        <span>05</span>
+        {% trans "Contact" %}
+      </a>
+    </nav>
+
+    <div class="rtr-header__actions">
+
+      <form
+        action="{% url 'set_language' %}"
+        method="post"
+        class="rtr-language"
+      >
+        {% csrf_token %}
+        <input
+          name="next"
+          type="hidden"
+          value="{{ request.path }}"
+        >
+
+        <button
+          type="submit"
+          name="language"
+          value="en"
+          class="{% if LANGUAGE_CODE == 'en' %}is-active{% endif %}"
+        >
+          EN
         </button>
-      </div>
+
+        <button
+          type="submit"
+          name="language"
+          value="fa"
+          class="{% if LANGUAGE_CODE == 'fa' %}is-active{% endif %}"
+        >
+          FA
+        </button>
+
+        <button
+          type="submit"
+          name="language"
+          value="it"
+          class="{% if LANGUAGE_CODE == 'it' %}is-active{% endif %}"
+        >
+          IT
+        </button>
+      </form>
+
+      <button
+        class="rtr-menu"
+        id="nav-toggle"
+        aria-label="{% trans 'Toggle menu' %}"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
     </div>
-  </header>
+  </div>
+</header>
 
   {% block template %}{% endblock %}
 
-  <footer class="site-footer">
+  {% comment %} <footer class="site-footer">
     <div class="site-footer__inner">
       <span class="mono-tag">© {% now "Y" %} Seyed Hossein Hosseini</span>
       <span class="mono-tag">{% trans "Built with Django" %}</span>
       <button class="to-top" id="to-top" aria-label="{% trans 'Back to top' %}">↑</button>
     </div>
-  </footer>
+  </footer> {% endcomment %}
 
   <script src="{% static 'gsap/gsap.min.js' %}"></script>
   <script src="{% static 'gsap/ScrollTrigger.min.js' %}"></script>

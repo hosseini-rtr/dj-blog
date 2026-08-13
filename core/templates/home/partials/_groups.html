@@ -1,30 +1,56 @@
 {% load i18n %}
-<section class="groups" id="groups">
-  <div class="section-inner">
-    <p class="eyebrow mono-tag">{% trans "SYS.EXPERIENCE / 04" %}</p>
-    <h2 class="section-title" data-reveal>{% trans "Where I've built things" %}</h2>
+<section class="rtr-experience" id="experience">
+  <div class="rtr-container">
 
-    <div class="timeline">
-      {% for group in groups %}
-      <article class="timeline__item" data-reveal>
-        <div class="timeline__marker">
-          <span class="timeline__dot"></span>
-          <span class="timeline__period mono-tag">{{ group.period }}</span>
-        </div>
-        <div class="timeline__content">
-          <h3>{{ group.name }}</h3>
-          <p class="timeline__role">{{ group.role }}</p>
-          <p class="timeline__desc">{{ group.description }}</p>
-          {% if group.tags %}
-          <div class="tool-chips tool-chips--small">
-            {% for tag in group.tags %}
-            <span class="tool-chip">{{ tag }}</span>
-            {% endfor %}
-          </div>
-          {% endif %}
-        </div>
-      </article>
-      {% endfor %}
+    <div class="rtr-section-meta">
+      <span>04</span>
+      <span>{% trans "EXPERIENCE" %}</span>
     </div>
+
+    <div class="rtr-experience__grid">
+
+      <div>
+        <h2>
+          Where I've
+          <span>operated.</span>
+        </h2>
+      </div>
+
+      <div class="rtr-experience__list">
+
+        <article>
+          <span>2022 — 2023</span>
+          <h3>Farabi Financial Group</h3>
+          <strong>FullStack Developer / Data Analyst</strong>
+          <p>
+            Backend systems, internal automation,
+            analytics and engineering workflows.
+          </p>
+        </article>
+
+        <article>
+          <span>2020 — 2022</span>
+          <h3>Selected Engineering Work</h3>
+          <strong>Independent / Project Based</strong>
+          <p>
+            Software systems, AI experiments and
+            technical product development.
+          </p>
+        </article>
+
+        <article>
+          <span>NOW</span>
+          <h3>Hosseini RTR</h3>
+          <strong>Engineering / Systems / AI</strong>
+          <p>
+            Building systems and exploring difficult
+            technical problems across multiple domains.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+
   </div>
 </section>

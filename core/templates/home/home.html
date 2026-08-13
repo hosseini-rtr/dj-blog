@@ -2,29 +2,54 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{{ hero.name }} — {% trans "Software Engineer" %}{% endblock %}
+{% block title %}
+  {{ hero.name }} — {% trans "Software Engineer" %}
+{% endblock %}
 
 {% block extra_head %}
-<meta name="description" content="{{ hero.tagline }}">
+
+<meta
+  name="description"
+  content="{{ hero.tagline }}"
+>
+
 <meta name="robots" content="index, follow">
+
 <meta property="og:title" content="{{ hero.name }}">
 <meta property="og:description" content="{{ hero.tagline }}">
 <meta property="og:type" content="website">
-<link href="{% static 'css/home.css' %}" rel="stylesheet">
+
+<link
+  href="{% static 'css/home.css' %}"
+  rel="stylesheet"
+>
+
 {% endblock %}
 
 {% block template %}
+
 <main id="page-main">
+
   {% include "home/partials/_hero.html" %}
+
   {% include "home/partials/_about.html" %}
-  {% include "home/partials/_skills.html" %}
-  {% include "home/partials/_groups.html" %}
+
   {% include "home/partials/_projects.html" %}
+
+  {% include "home/partials/_skills.html" %}
+
+  {% include "home/partials/_groups.html" %}
+
   {% include "home/partials/_services.html" %}
+
   {% include "home/partials/_contact.html" %}
+
 </main>
+
 {% endblock %}
 
 {% block extra_scripts %}
+
 <script src="{% static 'js/home.js' %}"></script>
+
 {% endblock %}

@@ -1,60 +1,153 @@
-{% extends "../base/3-col-template.html" %} {% load markdown_processing %}
-{%block content-mid %}
-{% load comment_tags %}
+{% extends "base/base.html" %}
+{% load static %}
+{% load i18n %}
 
-<style>
-  .blogger h1 {
-    letter-spacing: -0.6px;
-  }
+{% block title %}
+{{ post.title }} — Seyed Hossein Hosseini
+{% endblock %}
 
-  .post h1 {
-    font-size: 24px;
-    font-weight: bold;
-  }
+{% block extra_head %}
 
-  .post p {
-    font-family: Merriweather;
-    font-size: 1.0625rem;
-    line-height: 32px;
-    letter-spacing: 0.2px;
-  }
-</style>
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
 
-<div class="blogger center mx-auto" style="max-width: 683px">
-  <div class="text-muted">{{post.author}}</div>
-  <div class="text-muted pb-5">{{post.updated_at|date:"M d"}}</div>
-  <img src="{{ post.image.url }}" class="img-fluid float-end my-5 rounded" />
-  <h1 class="fw-bold pb-2">{{post.title}}</h1>
-  <h2 class="text-muted fs-4 pb-4">{{post.subtitle}}</h2>
-  <div class="post mb-5">
+<meta
+  name="description"
+  content="{{ post.subtitle|default:post.title }}"
+>
 
-    {{post.content | safe}}
-  </div>
-    {% comments_for post %}
-</div>
+{% endblock %}
 
-{% endblock %} {% block content-right %} 
-{% load sidebar_tag_cloud %} 
-{%sidebar_tag_cloud %}
 
-<div class="col-12">
-  <div class="pb-3">More from {{post.author}}</div>
-  {% for post in related %}
-  <a class="text-decoration-none" href="{{post.get_absolute_url}}">
-    <div class="card mb-3 border-0 ps-1">
-      <div class="row">
-        <div class="col-9 pe-2">
-          <span class="text-dark small">{{post.author}}</span>
-          <h1 class="mb-1 fs-6 p-0 text-dark fw-bold">
-            {{post.title|truncatechars:80}}
-          </h1>
-        </div>
-        <div class="col-3">
-          <img src="{{ post.image.url }}" class="img-fluid float-end rounded" />
-        </div>
-      </div>
+{% block template %}
+
+<main class="blog-page article-page">
+
+  <div class="blog-container">
+
+    <div class="article-nav">
+
+      <a href="{% url 'blog:home' %}">
+        ← {% trans "Back to all posts" %}
+      </a>
+
+      <span class="mono">
+        FIELD NOTE / {{ post.id|stringformat:"03d" }}
+      </span>
+
     </div>
-  </a>
-  {% endfor %}
-</div>
+
+
+    <header class="article-header">
+
+      <div class="article-header__meta">
+
+        <span class="eyebrow">
+          {% trans "ARTICLE" %}
+        </span>
+
+        <span class="mono">
+          {{ post.created_at|date:"Y.m.d" }}
+        </span>
+
+        {% if post.lang %}
+          <span class="mono">{{ post.lang|upper }}</span>
+        {% endif %}
+
+      </div>
+
+
+      {% with tags=post.tags.all %}
+        {% if tags %}
+          <div class="article-tags">
+            {% for tag in tags %}
+              <a href="{% url 'blog:by_tag' tag=tag.slug %}">
+                #{{ tag.name }}
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+
+      <h1>
+        {{ post.title }}
+      </h1>
+
+
+      {% if post.subtitle %}
+      <p class="article-subtitle">
+        {{ post.subtitle }}
+      </p>
+      {% endif %}
+
+    </header>
+
+
+    {% if post.image %}
+
+    <figure class="article-cover">
+
+      <img
+        src="{{ post.image.url }}"
+        alt="{{ post.title }}"
+      >
+
+    </figure>
+
+    {% endif %}
+
+
+    <div class="article-layout">
+
+      <aside class="article-sidebar">
+
+        <div>
+          <span>{% trans "AUTHOR" %}</span>
+          <strong>
+            {{ post.author|default:"Seyed Hossein Hosseini" }}
+          </strong>
+        </div>
+
+        <div>
+          <span>{% trans "PUBLISHED" %}</span>
+          <strong>
+            {{ post.created_at|date:"Y.m.d" }}
+          </strong>
+        </div>
+
+        <div>
+          <span>{% trans "VIEWS" %}</span>
+          <strong>
+            {{ post.view_count|default:"—" }}
+          </strong>
+        </div>
+
+      </aside>
+
+
+      <article class="article-content">
+
+        {{ post.content|safe }}
+
+      </article>
+
+    </div>
+
+
+    <footer class="article-footer">
+
+      <a href="{% url 'blog:home' %}">
+        ← {% trans "More articles" %}
+      </a>
+
+      <span class="mono">
+        END OF ARTICLE
+      </span>
+
+    </footer>
+
+  </div>
+
+</main>
+
 {% endblock %}

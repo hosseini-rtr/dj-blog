@@ -1,19 +1,185 @@
-{% extends "../base/base.html" %}
+{% extends "base/base.html" %}
+{% load static %}
+{% load i18n %}
 
-{% block title %}Index Page{% endblock %} 
-{%block template %} {% include "./components/splash.html"%}
+{% block title %}{% trans "Blog" %} — Seyed Hossein Hosseini{% endblock %}
 
-<div class="container pt-5">
-  <div class="row">
-    <div class="col-12 col-lg-8">
-      {% include "./components/post-list-elements.html"%}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+<meta name="description"
+      content="{% trans 'Engineering notes, AI, architecture, Python and systems.' %}">
+{% endblock %}
+
+{% block template %}
+
+<main class="blog-page">
+
+  <!-- BLOG TOOLBAR -->
+  <section class="blog-toolbar">
+
+    <div class="blog-container">
+
+      <div class="blog-toolbar__top">
+
+        <div class="blog-tabs">
+
+          <a
+            href="{% url 'blog:home' %}"
+            class="blog-tab is-active"
+          >
+            <span>01</span>
+            {% trans "All posts" %}
+          </a>
+
+          <a href="{% url 'blog:search' %}" class="blog-tab">
+            <span>02</span>
+            {% trans "Search" %}
+          </a>
+
+        </div>
+
+
+        <span class="blog-count">
+          {{ paginator.count|default:"0" }}
+          {% trans "posts" %}
+        </span>
+
+      </div>
+
+
+      <!-- TOPICS -->
+      <div class="blog-topics">
+
+        <span class="blog-topics__label">
+          {% trans "TOPICS" %}
+        </span>
+
+        <div class="blog-topics__list">
+
+          <a href="{% url 'blog:home' %}" class="is-active">
+            {% trans "All" %}
+          </a>
+
+          <a href="?topic=ai">
+            AI
+          </a>
+
+          <a href="?topic=architecture">
+            {% trans "Architecture" %}
+          </a>
+
+          <a href="?topic=python">
+            Python
+          </a>
+
+          <a href="?topic=backend">
+            Backend
+          </a>
+
+          <a href="?topic=systems">
+            {% trans "Systems" %}
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- SEARCH -->
+      <form
+        class="blog-search"
+        method="get"
+        action="{% url 'blog:search' %}"
+      >
+
+        <label for="blog-search">
+          {% trans "SEARCH ARTICLES" %}
+        </label>
+
+        <div class="blog-search__field">
+
+          <input
+            id="blog-search"
+            name="q"
+            type="search"
+            placeholder="{% trans 'Search by title, topic or keyword...' %}"
+            autocomplete="off"
+          >
+
+          <button type="submit" aria-label="{% trans 'Search' %}">
+            <span>{% trans "SEARCH" %}</span>
+            <b>↗</b>
+          </button>
+
+        </div>
+
+      </form>
+
     </div>
-    <div class="d-none d-lg-block col-4">
-      {% load sidebar_tag_cloud %} 
-      {% sidebar_tag_cloud %} 
-      {% include 'base/footer.html' %}
+
+  </section>
+
+
+  <!-- POSTS -->
+  <section class="blog-posts">
+
+    <div class="blog-container">
+
+      <div class="blog-posts__header">
+        <span class="mono">
+          {% trans "MOST RECENT FIRST" %}
+        </span>
+
+      </div>
+
+
+      <div
+        class="post-list"
+        id="post-list"
+      >
+        {% include "blog/components/post-list-elements.html" %}
+      </div>
+
+
+      {% if is_paginated %}
+
+      <nav class="blog-pagination">
+
+        {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}">
+            ← {% trans "Previous" %}
+          </a>
+        {% endif %}
+
+        <div class="blog-pagination__pages">
+
+          {% for page in paginator.page_range %}
+
+            <a
+              href="?page={{ page }}"
+              class="{% if page == page_obj.number %}is-active{% endif %}"
+            >
+              {{ page|stringformat:"02d" }}
+            </a>
+
+          {% endfor %}
+
+        </div>
+
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">
+            {% trans "Next" %} →
+          </a>
+        {% endif %}
+
+      </nav>
+
+      {% endif %}
+
     </div>
-  </div>
-</div>
+
+  </section>
+
+</main>
 
 {% endblock %}

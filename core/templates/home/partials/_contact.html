@@ -1,52 +1,191 @@
 {% load i18n %}
-<section class="contact" id="contact">
-  <div class="section-inner">
-    <p class="eyebrow mono-tag">{% trans "SYS.CONTACT / 07" %}</p>
 
-    <div class="contact__grid">
-      <div class="contact__lead">
-        <h2 class="section-title" data-reveal>
-          {% blocktrans %}Have something worth building?{% endblocktrans %}
-        </h2>
-        <p data-reveal>
-          {% trans "Tell me what you're trying to build and where it's stuck. I read every message myself." %}
+<section class="rtr-contact" id="contact">
+  <div class="rtr-container">
+
+    <!-- HEADER -->
+    <div class="rtr-section-meta">
+      <span>06</span>
+      <span>{% trans "CONTACT / OPEN CHANNEL" %}</span>
+    </div>
+
+    <div class="rtr-contact__grid">
+
+      <!-- LEFT -->
+      <div class="rtr-contact__lead">
+
+        <p class="rtr-contact__status">
+          <span></span>
+          {% trans "OPEN TO INTERESTING PROBLEMS" %}
         </p>
 
-        <div class="contact__details">
-          <a href="mailto:{{ contact.email|default:'Hossein@Hosseiniindustries.dev' }}" class="contact__row">
-            <span class="mono-tag">{% trans "EMAIL" %}</span>
-            <span>{{ contact.email|default:"Hossein@Hosseiniindustries.dev" }}</span>
+        <h2>
+          {% blocktrans %}
+            Have something
+            <span>worth building?</span>
+          {% endblocktrans %}
+        </h2>
+
+        <p class="rtr-contact__description">
+          {% trans "Tell me what you're trying to build, where it's stuck, or what decision you're trying to make. I read every message myself." %}
+        </p>
+
+        <div class="rtr-contact__details">
+
+          <a
+            href="mailto:{{ contact.email|default:'Hossein@Hosseiniindustries.dev' }}"
+            class="rtr-contact__detail"
+          >
+            <span class="rtr-contact__detail-label">
+              {% trans "EMAIL" %}
+            </span>
+
+            <span class="rtr-contact__detail-value">
+              {{ contact.email|default:"Hossein@Hosseiniindustries.dev" }}
+              <b>↗</b>
+            </span>
           </a>
-          {% trans "Malibu, CA — remote friendly" as default_contact_location %}
-          <div class="contact__row">
-            <span class="mono-tag">{% trans "LOCATION" %}</span>
-            <span>{{ contact.location|default:default_contact_location }}</span>
+
+          {% trans "Remote friendly" as default_contact_location %}
+
+          <div class="rtr-contact__detail">
+            <span class="rtr-contact__detail-label">
+              {% trans "LOCATION" %}
+            </span>
+
+            <span class="rtr-contact__detail-value">
+              {{ contact.location|default:default_contact_location }}
+            </span>
           </div>
-          <div class="contact__socials">
-            {% for social in contact.socials %}
-            <a href="{{ social.url }}" target="_blank" rel="noopener">{{ social.name }}</a>
-            {% endfor %}
-          </div>
+
         </div>
+
+        {% if contact.socials %}
+        <div class="rtr-contact__socials">
+
+          {% for social in contact.socials %}
+
+          <a
+            href="{{ social.url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ social.name }}
+            <span>↗</span>
+          </a>
+
+          {% endfor %}
+
+        </div>
+        {% endif %}
+
       </div>
 
-      <form class="contact__form" id="contact-form" method="post" action="{% url 'contact' %}" data-reveal>
-        {% csrf_token %}
-        <div class="form-field">
-          <label for="id_name">{% trans "Name" %}</label>
-          <input type="text" id="id_name" name="name" required>
+
+      <!-- FORM -->
+      <div class="rtr-contact__form-wrap">
+
+        <div class="rtr-contact__form-header">
+          <span>{% trans "START A CONVERSATION" %}</span>
         </div>
-        <div class="form-field">
-          <label for="id_email">{% trans "Email" %}</label>
-          <input type="email" id="id_email" name="email" required>
-        </div>
-        <div class="form-field">
-          <label for="id_message">{% trans "Message" %}</label>
-          <textarea id="id_message" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn--primary">{% trans "Send message" %}</button>
-        <p class="form-note mono-tag" id="form-note" aria-live="polite"></p>
-      </form>
+
+        <form
+          class="rtr-contact__form"
+          id="contact-form"
+          method="post"
+          action="{% url 'contact' %}"
+        >
+
+          {% csrf_token %}
+
+          <div class="rtr-form-field">
+            <label for="id_name">
+              {% trans "NAME" %}
+            </label>
+
+            <input
+              type="text"
+              id="id_name"
+              name="name"
+              placeholder="Write your name"
+              autocomplete="name"
+              required
+            >
+          </div>
+
+
+          <div class="rtr-form-field">
+            <label for="id_email">
+              {% trans "EMAIL" %}
+            </label>
+
+            <input
+              type="email"
+              id="id_email"
+              name="email"
+              placeholder="Write your email"
+              autocomplete="email"
+              required
+            >
+          </div>
+
+
+          <div class="rtr-form-field rtr-form-field--message">
+            <label for="id_message">
+              {% trans "WHAT ARE YOU BUILDING?" %}
+            </label>
+
+            <textarea
+              id="id_message"
+              name="message"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+
+
+          <div class="rtr-contact__submit">
+
+            <button type="submit">
+              <span>{% trans "Send message" %}</span>
+              <b>↗</b>
+            </button>
+
+            <p
+              class="rtr-form-note"
+              id="form-note"
+              aria-live="polite"
+            ></p>
+
+          </div>
+
+        </form>
+
+      </div>
+
     </div>
+
+
+    <!-- BOTTOM SIGNAL -->
+    <div class="rtr-contact__footer">
+
+      <span>
+        {% trans "TEHRAN / REMOTE" %}
+      </span>
+
+      <div class="rtr-contact__signal">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+
+      <span>
+        {% trans "ENGINEERING · AI · SYSTEMS" %}
+      </span>
+
+    </div>
+
   </div>
 </section>

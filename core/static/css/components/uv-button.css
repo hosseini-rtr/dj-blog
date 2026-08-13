@@ -1,0 +1,53 @@
+/* ===== UV Button — namespaced, won't leak to other <button> tags ===== */
+
+.uv-btn {
+    width: 10em;
+    position: relative;
+    display: inline-block;
+    height: 3.5em;
+    line-height: 3.5em;
+    text-align: center;
+    border: 3px ridge var(--accent, #149CEA);
+    outline: none;
+    background-color: transparent;
+    color: white;
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.uv-btn::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #000;
+    transition: 0.5s;
+    transform-origin: center;
+}
+
+.uv-btn::before {
+    content: "";
+    transform-origin: center;
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #000;
+    transition: 0.5s;
+}
+
+.uv-btn:hover::before,
+.uv-btn:hover::after {
+    transform: scale(0);
+}
+
+.uv-btn:hover {
+    box-shadow: inset 0px 0px 25px #1479EA;
+}

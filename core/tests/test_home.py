@@ -17,6 +17,13 @@ class TestHomePage:
         content = response.content.decode("utf-8")
         assert "SYSTEM ONLINE" in content or "Seyed Hossein Hosseini" in content
 
+    def test_blog_page_uses_home_style_shell(self, client):
+        response = client.get(reverse("blog:home"))
+        assert response.status_code == 200
+        content = response.content.decode("utf-8")
+        assert "blog-shell" in content
+        assert "Latest notes" in content
+
     def test_post_htmx_fragment(self, client):
         headers = {"HTTP_HX": "true"}
         response = client.get("/", **headers)
