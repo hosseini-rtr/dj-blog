@@ -1,15 +1,23 @@
-from django_ckeditor_5.fields import CKEditor5Field
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.urls import reverse
 from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
+from django_ckeditor_5.fields import CKEditor5Field
 from taggit.managers import TaggableManager
 
-from apps.common.models import (AuthoredModel, Comment, CommentableModel,
-                                PublishableModel, ReviewableModel, SEOModel,
-                                ShortURL, SluggedModel, TimeStampedModel,
-                                ViewCountModel)
+from apps.common.models import (
+    AuthoredModel,
+    Comment,
+    CommentableModel,
+    PublishableModel,
+    ReviewableModel,
+    SEOModel,
+    ShortURL,
+    SluggedModel,
+    TimeStampedModel,
+    ViewCountModel,
+)
 from core.utils import post_image_path
 
 
@@ -27,17 +35,16 @@ class Post(
     PublishableModel,
     SluggedModel,
     ReviewableModel,
-    TimeStampedModel
+    TimeStampedModel,
 ):
-    title = models.CharField(max_length=255, unique=True)
+    title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=100, null=True, blank=True)
     content = CKEditor5Field(config_name="default")
     image = models.ImageField(upload_to=post_image_path)
-    thumbnail = models.ImageField(
-        upload_to='posts/thumbnails/', null=True, blank=True)
-    short_urls = GenericRelation('common.ShortURL', related_query_name='post')
+    thumbnail = models.ImageField(upload_to="posts/thumbnails/", null=True, blank=True)
+    short_urls = GenericRelation("common.ShortURL", related_query_name="post")
 
-    comments = GenericRelation(Comment, related_query_name='post')
+    comments = GenericRelation(Comment, related_query_name="post")
     lang = models.CharField(
         _("Post's Language"), max_length=4, choices=LanguageOptions.choices
     )
@@ -56,14 +63,19 @@ class Post(
         super().save(*args, **kwargs)
         if not self.short_urls.exists():
             ShortURL.objects.create(
-                content_object=self,
-                short_code=ShortURL.generate_code(self)
+                content_object=self, short_code=ShortURL.generate_code(self)
             )
 
     def get_absolute_url(self):
         return reverse("blog:post_detail", kwargs={"post": self.slug})
 
     class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["title", "lang"],
+                name="unique_post_title_per_language",
+            ),
+        ]
         ordering = ("-created_at",)
         verbose_name = "Post"
         verbose_name_plural = "Posts"
