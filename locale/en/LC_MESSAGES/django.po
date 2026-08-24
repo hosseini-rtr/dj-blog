@@ -20,438 +20,426 @@ msgstr ""
 
 #: apps/blog/models.py:25
 msgid "Farsi"
-msgstr "Persiano"
+msgstr ""
 
 #: apps/blog/models.py:26 core/settings/base.py:106
 msgid "English"
-msgstr "Inglese"
+msgstr ""
 
 #: apps/blog/models.py:27 core/settings/base.py:108
 msgid "Italian"
-msgstr "Italiano"
+msgstr ""
 
 #: apps/blog/models.py:49
 msgid "Post's Language"
-msgstr "Lingua del post"
+msgstr ""
 
 #: apps/common/models.py:76
 msgid "Draft"
-msgstr "Bozza"
+msgstr ""
 
 #: apps/common/models.py:77
 msgid "Pending Review"
-msgstr "In attesa di revisione"
+msgstr ""
 
 #: apps/common/models.py:78
 msgid "Approved"
-msgstr "Approvato"
+msgstr ""
 
 #: apps/common/models.py:79
 msgid "Rejected"
-msgstr "Rifiutato"
+msgstr ""
 
 #: apps/common/models.py:151 apps/common/models.py:210
 #: apps/common/models.py:258
 msgid "Content Type"
-msgstr "Tipo di contenuto"
+msgstr ""
 
 #: apps/common/models.py:153 apps/common/models.py:260
 msgid "Object Id"
-msgstr "ID oggetto"
+msgstr ""
 
 #: apps/common/models.py:161
 msgid "User"
-msgstr "Utente"
+msgstr ""
 
 #: apps/common/models.py:164
 msgid "Viewer IP address"
-msgstr "Indirizzo IP del visitatore"
+msgstr ""
 
 #: apps/common/models.py:169
 msgid "Content View"
-msgstr "Visualizzazione del contenuto"
+msgstr ""
 
 #: apps/common/models.py:170
 msgid "Content Views"
-msgstr "Visualizzazioni del contenuto"
+msgstr ""
 
 #: apps/common/models.py:228
 msgid "Comment"
-msgstr "Commento"
+msgstr ""
 
 #: apps/common/models.py:229
 msgid "Comments"
-msgstr "Commenti"
+msgstr ""
 
 #: apps/common/models.py:237
 msgid "Only one response surface is allowed."
-msgstr "È consentita una sola superficie di risposta."
+msgstr ""
 
 #: apps/common/models.py:241
 msgid "The answer must be for the same context."
-msgstr "La risposta deve riferirsi allo stesso contesto."
+msgstr ""
 
 #: apps/common/models.py:265
 msgid "Short url"
-msgstr "URL breve"
+msgstr ""
 
 #: apps/common/models.py:266
 msgid "short urls"
-msgstr "URL brevi"
+msgstr ""
 
 #: apps/common/models.py:287
 msgid "Name"
-msgstr "Nome"
+msgstr ""
 
 #: apps/common/models.py:288
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 #: apps/common/models.py:289
 msgid "Subject"
-msgstr "Oggetto"
+msgstr ""
 
 #: apps/common/models.py:290
 msgid "Message"
-msgstr "Messaggio"
+msgstr ""
 
 #: apps/common/models.py:293
 msgid "Created at"
-msgstr "Creato il"
+msgstr ""
 
 #: apps/common/models.py:295
 msgid "Read"
-msgstr "Letto"
+msgstr ""
 
 #: apps/common/models.py:298
 msgid "Contact Message"
-msgstr "Messaggio di contatto"
+msgstr ""
 
 #: apps/common/models.py:299
 msgid "Contact Messages"
-msgstr "Messaggi di contatto"
+msgstr ""
 
 #: core/settings/base.py:107
 msgid "Persian"
-msgstr "Persiano"
+msgstr ""
 
 #: core/templates/base/base.html:9
 msgid "Seyed Hossein Hosseini — Software Engineer"
-msgstr "Seyed Hossein Hosseini — Software Engineer"
+msgstr ""
 
 #: core/templates/base/base.html:34 core/templates/base/navbar.html:31
 msgid "About"
-msgstr "Chi sono"
+msgstr ""
 
 #: core/templates/base/base.html:39
 msgid "Work"
-msgstr "Attività"
+msgstr ""
 
 #: core/templates/base/base.html:44
 msgid "Capabilities"
-msgstr "Competenze"
+msgstr ""
 
 #: core/templates/base/base.html:49
 msgid "Experience"
-msgstr "Esperienza"
+msgstr ""
 
 #: core/templates/base/base.html:54
 msgid "Contact"
-msgstr "Contatti"
+msgstr ""
 
 #: core/templates/base/base.html:103
 msgid "Toggle menu"
-msgstr "Apri/chiudi menu"
+msgstr ""
 
 #: core/templates/base/components/comments.html:28
 msgid "There is no comment yet."
-msgstr "Non ci sono ancora commenti."
+msgstr ""
 
 #: core/templates/base/navbar.html:22
 msgid "Home"
-msgstr "Home"
+msgstr ""
 
 #: core/templates/base/navbar.html:27 core/templates/blog/index.html:5
 #: core/templates/blog/tags.html:6
 msgid "Blog"
-msgstr "Blog"
+msgstr ""
 
 #: core/templates/blog/components/post-list-elements.html:65
 msgid "No articles found."
-msgstr "Nessun articolo trovato."
+msgstr ""
 
 #: core/templates/blog/components/post-list-elements.html:69
 msgid "Try another search or topic."
-msgstr "Prova un'altra ricerca o un altro argomento."
+msgstr ""
 
 #: core/templates/blog/index.html:10
 msgid "Engineering notes, AI, architecture, Python and systems."
-msgstr "Note di ingegneria, IA, architettura, Python e sistemi."
+msgstr ""
 
 #: core/templates/blog/index.html:31 core/templates/blog/tags.html:24
 msgid "All posts"
-msgstr "Tutti gli articoli"
+msgstr ""
 
 #: core/templates/blog/index.html:36 core/templates/blog/index.html:109
 #: core/templates/blog/partials/_blog_shell.html:72
 #: core/templates/blog/search.html:5 core/templates/blog/search.html:62
 msgid "Search"
-msgstr "Cerca"
+msgstr ""
 
 #: core/templates/blog/index.html:44 core/templates/blog/tags.html:58
 msgid "posts"
-msgstr "articoli"
+msgstr ""
 
 #: core/templates/blog/index.html:54
 msgid "TOPICS"
-msgstr "ARGOMENTI"
+msgstr ""
 
 #: core/templates/blog/index.html:60
 msgid "All"
-msgstr "Tutti"
+msgstr ""
 
 #: core/templates/blog/index.html:68
 msgid "Architecture"
-msgstr "Architettura"
+msgstr ""
 
 #: core/templates/blog/index.html:80
 msgid "Systems"
-msgstr "Sistemi"
+msgstr ""
 
 #: core/templates/blog/index.html:96 core/templates/blog/search.html:47
 msgid "SEARCH ARTICLES"
-msgstr "CERCA ARTICOLI"
+msgstr ""
 
 #: core/templates/blog/index.html:105
 msgid "Search by title, topic or keyword..."
-msgstr "Cerca per titolo, argomento o parola chiave..."
+msgstr ""
 
 #: core/templates/blog/index.html:110
 msgid "SEARCH"
-msgstr "CERCA"
+msgstr ""
 
 #: core/templates/blog/index.html:130
 msgid "MOST RECENT FIRST"
-msgstr "PIÙ RECENTI"
+msgstr ""
 
 #: core/templates/blog/index.html:150
 msgid "Previous"
-msgstr "Precedente"
+msgstr ""
 
 #: core/templates/blog/index.html:171
 msgid "Next"
-msgstr "Successivo"
+msgstr ""
 
 #: core/templates/blog/partials/_blog_shell.html:17
 msgid "FIELD NOTES / ONLINE"
-msgstr "NOTE TECNICHE / ONLINE"
+msgstr ""
 
 #: core/templates/blog/partials/_blog_shell.html:22
 #: core/templates/home/partials/_contact.html:185
 msgid "ENGINEERING · AI · SYSTEMS"
-msgstr "INGEGNERIA · IA · SISTEMI"
+msgstr ""
 
 #: core/templates/blog/partials/_blog_shell.html:39
 msgid "THOUGHTS, SYSTEMS & FIELD NOTES"
-msgstr "IDEE, SISTEMI E NOTE TECNICHE"
+msgstr ""
 
 #: core/templates/blog/partials/_blog_shell.html:44
 msgid "Field Notes"
-msgstr "Note tecniche"
+msgstr ""
 
 #: core/templates/blog/partials/_blog_shell.html:50
 msgid ""
 "Writing about software engineering, AI, distributed systems, architecture "
 "and the decisions behind building real systems."
 msgstr ""
-"Scrivo di ingegneria del software, IA, sistemi distribuiti, architettura e "
-"delle decisioni alla base della costruzione di sistemi reali."
 
 #: core/templates/blog/partials/_blog_shell.html:60
 msgid "Blog navigation"
-msgstr "Navigazione del blog"
+msgstr ""
 
 #: core/templates/blog/partials/_blog_shell.html:67
 msgid "All notes"
-msgstr "Tutte le note"
+msgstr ""
 
 #: core/templates/blog/partials/_blog_shell.html:77
 msgid "Portfolio"
-msgstr "Portfolio"
+msgstr ""
 
 #: core/templates/blog/partials/_blog_shell.html:90
 msgid "END OF TRANSMISSION"
-msgstr "FINE DELLA TRASMISSIONE"
+msgstr ""
 
 #: core/templates/blog/search.html:22
 msgid "Back to blog"
-msgstr "Torna al blog"
+msgstr ""
 
 #: core/templates/blog/search.html:35
 msgid "SEARCH ARCHIVE"
-msgstr "CERCA NELL'ARCHIVIO"
+msgstr ""
 
 #: core/templates/blog/search.html:57
 msgid "Django, AI, distributed systems..."
-msgstr "Django, IA, sistemi distribuiti..."
+msgstr ""
 
 #: core/templates/blog/search.html:79
 msgid "RESULTS FOR"
-msgstr "RISULTATI PER"
+msgstr ""
 
 #: core/templates/blog/search.html:88
 msgid "matches"
-msgstr "corrispondenze"
+msgstr ""
 
 #: core/templates/blog/single.html:43
 msgid "ARTICLE"
-msgstr "ARTICOLO"
+msgstr ""
 
 #: core/templates/blog/single.html:103
 msgid "AUTHOR"
-msgstr "AUTORE"
+msgstr ""
 
 #: core/templates/blog/single.html:110
 msgid "PUBLISHED"
-msgstr "PUBBLICATO"
+msgstr ""
 
 #: core/templates/blog/single.html:117
 msgid "VIEWS"
-msgstr "VISUALIZZAZIONI"
+msgstr ""
 
 #: core/templates/blog/single.html:165
 msgid "COPY LINK"
-msgstr "COPIA LINK"
+msgstr ""
 
 #: core/templates/blog/single.html:217
 msgid "SHARE"
-msgstr "CONDIVIDI"
+msgstr ""
 
 #: core/templates/blog/single.html:247
 msgid "Discussion"
-msgstr "Discussione"
+msgstr ""
 
 #: core/templates/blog/single.html:253
 msgid "COMMENTS"
-msgstr "COMMENTI"
+msgstr ""
 
 #: core/templates/blog/single.html:293
 msgid "No comments yet."
-msgstr "Ancora nessun commento."
+msgstr ""
 
 #: core/templates/blog/single.html:310
 msgid "More articles"
-msgstr "Altri articoli"
+msgstr ""
 
 #: core/templates/blog/single.html:369 core/templates/blog/single.html:387
 msgid "COPIED"
-msgstr "COPIATO"
+msgstr ""
 
 #: core/templates/blog/tags.html:37
 msgid "TOPIC"
-msgstr "ARGOMENTO"
+msgstr ""
 
 #: core/templates/blog/tags.html:43
 msgid "Articles and notes related to this topic."
-msgstr "Articoli e note relativi a questo argomento."
+msgstr ""
 
 #: core/templates/blog/tags.html:54
 msgid "Articles"
-msgstr "Articoli"
+msgstr ""
 
 #: core/templates/connect/index.html:619
 msgid "PERSONAL SIGNAL / ONLINE"
-msgstr "SEGNALE PERSONALE / ONLINE"
+msgstr ""
 
 #: core/templates/connect/index.html:660
 msgid "PRIMARY SIGNAL"
-msgstr "SEGNALE PRINCIPALE"
+msgstr ""
 
 #: core/templates/connect/index.html:677
 msgid "Portfolio / Home"
-msgstr "Portfolio / Home"
+msgstr ""
 
 #: core/templates/connect/index.html:681
 msgid "Projects, systems, experience and what I am building."
-msgstr "Progetti, sistemi, esperienza e ciò che sto costruendo."
+msgstr ""
 
 #: core/templates/connect/index.html:688
 msgid "START HERE"
-msgstr "INIZIA DA QUI"
+msgstr ""
 
 #: core/templates/connect/index.html:707
 msgid "Engineering Journal"
-msgstr "Diario di ingegneria"
+msgstr ""
 
 #: core/templates/connect/index.html:711
 msgid "Technical notes, architecture, AI and engineering."
-msgstr "Note tecniche, architettura, IA e ingegneria."
+msgstr ""
 
 #: core/templates/connect/index.html:718
 msgid "BLOG"
-msgstr "BLOG"
+msgstr ""
 
 #: core/templates/connect/index.html:743
 msgid "Code, experiments and technical work."
-msgstr "Codice, esperimenti e lavoro tecnico."
+msgstr ""
 
 #: core/templates/connect/index.html:750
 msgid "CODE"
-msgstr "CODICE"
+msgstr ""
 
 #: core/templates/connect/index.html:773
 msgid "CURRENT WORK"
-msgstr "LAVORO ATTUALE"
+msgstr ""
 
 #: core/templates/connect/index.html:794
 msgid "Brain-computer interface and applied AI."
-msgstr "Interfaccia cervello-computer e IA applicata."
+msgstr ""
 
 #: core/templates/connect/index.html:802
 msgid "PROJECT"
-msgstr "PROGETTO"
+msgstr ""
 
 #: core/templates/connect/index.html:826
 msgid "Autonomous systems and robotics."
-msgstr "Sistemi autonomi e robotica."
+msgstr ""
 
 #: core/templates/connect/index.html:834
 msgid "BUILDING"
-msgstr "IN COSTRUZIONE"
+msgstr ""
 
 #: core/templates/connect/index.html:859
 msgid "ELSEWHERE"
-msgstr "ALTROVE"
+msgstr ""
 
 #: core/templates/connect/index.html:917
 msgid "Built with Django"
-msgstr "Realizzato con Django"
+msgstr ""
 
 #: core/templates/home/home.html:6
 msgid "Software Engineer"
-msgstr "Software Engineer"
+msgstr ""
 
 #: core/templates/home/partials/_about.html:7
 msgid "ABOUT"
-msgstr "CHI SONO"
+msgstr ""
 
 #: core/templates/home/partials/_about.html:15
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "            Have something\n"
-#| "            <span>worth building?</span>\n"
-#| "          "
 msgid ""
 "\n"
 "          I work on the problems\n"
 "          <span>that don't have obvious answers.</span>\n"
 "          "
 msgstr ""
-"\n"
-"            Hai qualcosa\n"
-"            <span>che vale la pena costruire?</span>\n"
-"          "
 
 #: core/templates/home/partials/_about.html:26
 msgid ""
@@ -473,11 +461,11 @@ msgstr ""
 
 #: core/templates/home/partials/_contact.html:9
 msgid "CONTACT / OPEN CHANNEL"
-msgstr "CONTATTI / CANALE APERTO"
+msgstr ""
 
 #: core/templates/home/partials/_contact.html:19
 msgid "OPEN TO INTERESTING PROBLEMS"
-msgstr "APERTO A PROBLEMI INTERESSANTI"
+msgstr ""
 
 #: core/templates/home/partials/_contact.html:23
 msgid ""
@@ -486,89 +474,69 @@ msgid ""
 "            <span>worth building?</span>\n"
 "          "
 msgstr ""
-"\n"
-"            Hai qualcosa\n"
-"            <span>che vale la pena costruire?</span>\n"
-"          "
 
 #: core/templates/home/partials/_contact.html:30
 msgid ""
 "Tell me what you're trying to build, where it's stuck, or what decision "
 "you're trying to make. I read every message myself."
 msgstr ""
-"Dimmi cosa stai cercando di costruire, dove ti sei bloccato o quale "
-"decisione stai cercando di prendere. Leggo personalmente ogni messaggio."
 
 #: core/templates/home/partials/_contact.html:40
 #: core/templates/home/partials/_contact.html:119
 msgid "EMAIL"
-msgstr "EMAIL"
+msgstr ""
 
 #: core/templates/home/partials/_contact.html:49
 msgid "Tehran Or Remote friendly"
-msgstr "Teheran o da remoto"
+msgstr ""
 
 #: core/templates/home/partials/_contact.html:53
 msgid "LOCATION"
-msgstr "POSIZIONE"
+msgstr ""
 
 #: core/templates/home/partials/_contact.html:89
 msgid "START A CONVERSATION"
-msgstr "INIZIA UNA CONVERSAZIONE"
+msgstr ""
 
 #: core/templates/home/partials/_contact.html:103
 msgid "NAME"
-msgstr "NOME"
+msgstr ""
 
 #: core/templates/home/partials/_contact.html:135
 msgid "WHAT ARE YOU BUILDING?"
-msgstr "COSA STAI COSTRUENDO?"
+msgstr ""
 
 #: core/templates/home/partials/_contact.html:150
 msgid "Send message"
-msgstr "Invia messaggio"
+msgstr ""
 
 #: core/templates/home/partials/_contact.html:173
 msgid "TEHRAN / REMOTE"
-msgstr "TEHERAN / REMOTO"
+msgstr ""
 
 #: core/templates/home/partials/_groups.html:7
 msgid "EXPERIENCE"
-msgstr "ESPERIENZA"
+msgstr ""
 
 #: core/templates/home/partials/_groups.html:15
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "            Have something\n"
-#| "            <span>worth building?</span>\n"
-#| "          "
 msgid ""
 "\n"
 "          Where I've\n"
 "          <span>operated.</span>\n"
 "          "
 msgstr ""
-"\n"
-"            Hai qualcosa\n"
-"            <span>che vale la pena costruire?</span>\n"
-"          "
 
 #: core/templates/home/partials/_hero.html:25
 msgid ""
 "Technology is easy.\n"
 "    "
 msgstr ""
-"La tecnologia è facile.\n"
-"    "
 
 #: core/templates/home/partials/_hero.html:28
 msgid ""
 "Knowing what to build isn't.\n"
 "    "
 msgstr ""
-"Capire cosa costruire non lo è.\n"
-"    "
 
 #: core/templates/home/partials/_hero.html:32
 msgid ""
@@ -576,13 +544,10 @@ msgid ""
 "then turning the useful answer into something real.\n"
 "    "
 msgstr ""
-"Risolvo problemi tecnici mettendo in discussione le assunzioni che ne stanno "
-"alla base — poi trasformo la risposta utile in qualcosa di concreto.\n"
-"    "
 
 #: core/templates/home/partials/_projects.html:7
 msgid "SELECTED WORK"
-msgstr "PROGETTI SELEZIONATI"
+msgstr ""
 
 #: core/templates/home/partials/_projects.html:11
 msgid "Selected work."
@@ -625,25 +590,15 @@ msgstr ""
 
 #: core/templates/home/partials/_services.html:7
 msgid "HOW I CAN HELP"
-msgstr "COME POSSO AIUTARTI"
+msgstr ""
 
 #: core/templates/home/partials/_services.html:12
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "            Have something\n"
-#| "            <span>worth building?</span>\n"
-#| "          "
 msgid ""
 "\n"
 "        From problem\n"
 "        <span>to technical outcome.</span>\n"
 "        "
 msgstr ""
-"\n"
-"            Hai qualcosa\n"
-"            <span>che vale la pena costruire?</span>\n"
-"          "
 
 #: core/templates/home/partials/_services.html:24
 msgid "Build"
@@ -658,10 +613,8 @@ msgid ""
 msgstr ""
 
 #: core/templates/home/partials/_services.html:37
-#, fuzzy
-#| msgid "Architecture"
 msgid "Architect"
-msgstr "Architettura"
+msgstr ""
 
 #: core/templates/home/partials/_services.html:40
 msgid ""
@@ -672,10 +625,8 @@ msgid ""
 msgstr ""
 
 #: core/templates/home/partials/_services.html:49
-#, fuzzy
-#| msgid "Approved"
 msgid "Improve"
-msgstr "Approvato"
+msgstr ""
 
 #: core/templates/home/partials/_services.html:52
 msgid ""
@@ -687,31 +638,19 @@ msgstr ""
 
 #: core/templates/home/partials/_skills.html:7
 msgid "CAPABILITIES"
-msgstr "COMPETENZE"
+msgstr ""
 
 #: core/templates/home/partials/_skills.html:13
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "            Have something\n"
-#| "            <span>worth building?</span>\n"
-#| "          "
 msgid ""
 "\n"
 "        Technical depth\n"
 "        <span>with context.</span>\n"
 "        "
 msgstr ""
-"\n"
-"            Hai qualcosa\n"
-"            <span>che vale la pena costruire?</span>\n"
-"          "
 
 #: core/templates/home/partials/_skills.html:25
-#, fuzzy
-#| msgid "Software Engineer"
 msgid "Systems Engineering"
-msgstr "Software Engineer"
+msgstr ""
 
 #: core/templates/home/partials/_skills.html:28
 msgid ""
@@ -734,10 +673,8 @@ msgid ""
 msgstr ""
 
 #: core/templates/home/partials/_skills.html:55
-#, fuzzy
-#| msgid "Architecture"
 msgid "Technical Architecture"
-msgstr "Architettura"
+msgstr ""
 
 #: core/templates/home/partials/_skills.html:58
 msgid ""
@@ -749,12 +686,12 @@ msgstr ""
 
 #: core/views.py:70
 msgid "Please fill out all required fields."
-msgstr "Compila tutti i campi obbligatori."
+msgstr ""
 
 #: core/views.py:81
 msgid "Please enter a valid email address."
-msgstr "Inserisci un indirizzo email valido."
+msgstr ""
 
 #: core/views.py:97
 msgid "Thanks for reaching out. I will get back to you soon."
-msgstr "Grazie per avermi contattato. Ti risponderò presto."
+msgstr ""
