@@ -15,7 +15,7 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    path("admin/", admin.site.urls),
+    path("red-line/", admin.site.urls),
     path("", home_view, name="home"),
     path("contact/", contact_view, name="contact"),
     path("blog/", include("apps.blog.urls")),

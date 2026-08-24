@@ -4,13 +4,16 @@
 
     <div class="rtr-section-meta">
       <span>03</span>
-      <span>{% trans "CAPABILITIES" %}</span>
+      <span style="color:#171714">{% trans "CAPABILITIES" %}</span>
     </div>
 
     <div class="rtr-capabilities__heading">
       <h2>
+        
+        {% blocktrans %}
         Technical depth
         <span>with context.</span>
+        {% endblocktrans %}
       </h2>
     </div>
 
@@ -19,10 +22,13 @@
       <article>
         <span>01</span>
         <div>
-          <h3>Systems Engineering</h3>
+          <h3>{% trans 'Systems Engineering' %}</h3>
           <p>
+            
+            {% blocktrans %}
             Backend architecture, distributed systems,
             data flows, reliability and performance.
+            {% endblocktrans %}
           </p>
         </div>
         <small>PYTHON · DJANGO · POSTGRESQL · REDIS</small>
@@ -31,10 +37,13 @@
       <article>
         <span>02</span>
         <div>
-          <h3>AI & Intelligent Systems</h3>
+          <h3>{% trans 'AI & Intelligent Systems' %}</h3>
           <p>
+            
+            {% blocktrans %}
             Designing practical AI systems where models
             become part of a larger product or workflow.
+            {% endblocktrans %}
           </p>
         </div>
         <small>ML · COMPUTER VISION · LLM · AUTOMATION</small>
@@ -43,10 +52,14 @@
       <article>
         <span>03</span>
         <div>
-          <h3>Technical Architecture</h3>
+          <h3>{% trans 'Technical Architecture' %}</h3>
           <p>
+            
+            {% blocktrans %}
             Choosing the appropriate architecture instead
-            of automatically reaching for complexity.
+            of automatically reaching for complexity.  
+            {% endblocktrans %}
+            
           </p>
         </div>
         <small>ARCHITECTURE · TRADE-OFFS · SCALE</small>

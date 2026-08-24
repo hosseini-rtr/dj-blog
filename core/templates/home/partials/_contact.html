@@ -33,7 +33,7 @@
         <div class="rtr-contact__details">
 
           <a
-            href="mailto:{{ contact.email|default:'Hossein@Hosseiniindustries.dev' }}"
+            href="mailto:{{ contact.email|default:'hello@hosseini-rtr.ir' }}"
             class="rtr-contact__detail"
           >
             <span class="rtr-contact__detail-label">
@@ -41,12 +41,12 @@
             </span>
 
             <span class="rtr-contact__detail-value">
-              {{ contact.email|default:"Hossein@Hosseiniindustries.dev" }}
+              {{ contact.email|default:"hello@hosseini-rtr.ir" }}
               <b>↗</b>
             </span>
           </a>
 
-          {% trans "Remote friendly" as default_contact_location %}
+          {% trans "Tehran Or Remote friendly" as default_contact_location %}
 
           <div class="rtr-contact__detail">
             <span class="rtr-contact__detail-label">

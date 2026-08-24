@@ -1,75 +1,37 @@
 {% load i18n %}
-{% comment %} <section class="hero" id="hero">
-  <div class="hero__frame">
-    <span class="corner corner--tl"></span>
-    <span class="corner corner--tr"></span>
-    <span class="corner corner--bl"></span>
-    <span class="corner corner--br"></span>
-
-    <div class="hero__status mono-tag" id="hero-status">
-      <span class="status-dot"></span>
-      {% trans "SYSTEM ONLINE" %} — <span id="hero-clock">00:00:00</span>
-    </div>
-
-    <p class="eyebrow mono-tag">{% trans "SYS.HERO / 01" %}</p>
-
-    <h1 class="hero__title" id="hero-title">
-      <span class="hero__line" data-line>{{ hero.name|default:"Seyed Hossein Hosseini" }}</span>
-    </h1>
-
-    {% trans "I build the systems other engineers assume already exist." as default_tagline %}
-    <p class="hero__tagline" id="hero-tagline">
-      {{ hero.tagline|default:default_tagline }}
-    </p>
-
-    {% trans "Backend & Platform Engineer" as default_role %}
-    {% trans "Tehran, IR" as default_location %}
-    {% trans "Open to select work" as default_availability %}
-    <div class="hero__meta">
-      <div class="hero__meta-item">
-        <span class="mono-tag">{% trans "ROLE" %}</span>
-        <strong>{{ hero.role|default:default_role }}</strong>
-      </div>
-      <div class="hero__meta-item">
-        <span class="mono-tag">{% trans "BASE" %}</span>
-        <strong>{{ hero.location|default:default_location }}</strong>
-      </div>
-      <div class="hero__meta-item">
-        <span class="mono-tag">{% trans "STATUS" %}</span>
-        <strong>{{ hero.availability|default:default_availability }}</strong>
-      </div>
-    </div>
-
-    <div class="hero__actions">
-      {% include "blog/components/_uv_btn.html" with text="Say hello" href="#contact" %}
-
-      <a href="#projects" class="btn-shiny">{% trans "View the work" %}</a>
-      <a href="#contact" class="btn btn--ghost">{% trans "Start a project" %}</a>
-    </div>
-  </div>
-
-  <div class="hero__scroll-cue mono-tag" aria-hidden="true">
-    <span>{% trans "scroll" %}</span>
-    <span class="scroll-line"></span>
-  </div>
-</section> {% endcomment %}
-
 <section class="rtr-hero rtr-hero--signal" aria-labelledby="rtr-title">
 <style>
-.rtr-hero--signal{--bg:#111111;--fg:#f5f4ef;--muted:#858680;--line:#2c2c2a;--accent:#ff5f38;background:var(--bg);color:var(--fg);min-height:760px;font-family:Inter,system-ui,sans-serif;position:relative;overflow:hidden}
+.rtr-hero--signal{--bg:#111111;--fg:#f5f4ef;--muted:#858680;--line:#2c2c2a;--accent:#ff5f38;background:var(--bg);color:var(--fg);min-height:760px;font-family: var(--font-body);position:relative;overflow:hidden}
 .rtr-hero--signal *{box-sizing:border-box}.rtr-hero--signal .wrap{width:min(1240px,calc(100% - 48px));min-height:760px;margin:auto;display:flex;flex-direction:column;justify-content:center;position:relative}
 .rtr-hero--signal .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:70px;font:11px ui-monospace,monospace;letter-spacing:.13em;color:var(--muted)}.rtr-hero--signal .live{color:var(--accent)}
 .rtr-hero--signal h1{font-size:clamp(55px,9vw,132px);line-height:.84;letter-spacing:-.075em;max-width:1080px;margin:0;font-weight:650}.rtr-hero--signal h1 span{color:var(--muted)}
 .rtr-hero--signal .bottom{display:flex;justify-content:space-between;align-items:end;margin-top:70px;border-top:1px solid var(--line);padding-top:22px}.rtr-hero--signal p{max-width:560px;color:#aaa9a3;font-size:16px;line-height:1.7;margin:0}.rtr-hero--signal a{color:var(--fg);text-decoration:none;border:1px solid #3b3b38;padding:13px 17px;font-size:12px;white-space:nowrap}.rtr-hero--signal .signal{position:absolute;right:-5%;top:23%;width:46%;height:150px;opacity:.65;pointer-events:none}
 .rtr-hero--signal .signal svg{width:100%;height:100%}.rtr-hero--signal .signal path{fill:none;stroke:var(--accent);stroke-width:1.2}
+.rtr-hero--signal h1 {
+    font-family: var(--font-display);
+    font-size: clamp(55px, 9vw, 132px);
+    line-height: 1;
+    letter-spacing: -.075em;
+    max-width: 1080px;
+    margin: 0;
+    font-weight: 650;
+}
 @media(max-width:700px){.rtr-hero--signal .wrap{padding:45px 0}.rtr-hero--signal .top{margin-bottom:45px}.rtr-hero--signal .signal{width:80%;right:-30%;top:27%;opacity:.4}.rtr-hero--signal .bottom{display:block;margin-top:45px}.rtr-hero--signal a{display:inline-block;margin-top:25px}}
 </style>
 <div class="wrap">
-  <div class="top"><span>HOSSEIN RTR / PERSONAL SYSTEM</span><span class="live">● THINK / BUILD / SHIP</span></div>
+  <div class="top"><span>HOSSEINI RTR / PERSONAL SYSTEM</span><span class="live">● THINK / BUILD / SHIP</span></div>
   <div class="signal" aria-hidden="true"><svg viewBox="0 0 500 150" preserveAspectRatio="none"><path d="M0 88 C35 88 35 24 70 24 S105 130 140 130 S175 52 210 52 S245 98 280 98 S315 18 350 18 S385 118 420 118 S455 68 500 68"/></svg></div>
-  <h1 id="rtr-title">Technology is easy.<br><span>Knowing what to build isn't.</span></h1>
+  <h1 id="rtr-title">
+    {% blocktrans %}Technology is easy.
+    {% endblocktrans %}<br>
+    <span>
+      {% blocktrans %}Knowing what to build isn't.
+    {% endblocktrans %}</span></h1>
   <div class="bottom">
-    <p>I solve technical problems by questioning the assumptions underneath them — then turning the useful answer into something real.</p>
+    <p>
+      {% blocktrans %}I solve technical problems by questioning the assumptions underneath them — then turning the useful answer into something real.
+    {% endblocktrans %}
+  </p>
     <a href="{{ cta_url|default:'#work' }}">{{ cta_label|default:'View selected work →' }}</a>
   </div>
 </div>

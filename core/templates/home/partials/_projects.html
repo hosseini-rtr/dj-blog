@@ -8,10 +8,13 @@
     </div>
 
     <div class="rtr-work__intro">
-      <h2>Selected work.</h2>
+      <h2>{% trans 'Selected work.' %}</h2>
       <p>
+        
+        {% blocktrans %}
         A few systems, products and experiments
         built around difficult technical problems.
+        {% endblocktrans %}
       </p>
     </div>
 
@@ -28,10 +31,12 @@
 
           <h3>Airctl</h3>
 
-          <p>
+          <p>        {% blocktrans %}
+
             Gesture-driven interaction system using
             computer vision and real-time inference.
-          </p>
+               {% endblocktrans %}
+   </p>
         </div>
 
         <div class="rtr-project__arrow">↗</div>
@@ -49,10 +54,12 @@
 
           <h3>Neerus</h3>
 
-          <p>
+          <p>        {% blocktrans %}
+
             A brain-computer interface platform combining
             biosignal acquisition and machine learning.
-          </p>
+                {% endblocktrans %}
+  </p>
         </div>
 
         <div class="rtr-project__arrow">↗</div>
@@ -68,12 +75,14 @@
             AUTONOMOUS SYSTEMS
           </div>
 
-          <h3>Data Dynamics</h3>
+          <h3>Datam Dynamics</h3>
 
-          <p>
+          <p>        {% blocktrans %}
+
             Autonomous vehicle systems developed around
             perception, control and distributed computation.
-          </p>
+                {% endblocktrans %}
+  </p>
         </div>
 
         <div class="rtr-project__arrow">↗</div>

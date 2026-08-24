@@ -9,8 +9,11 @@
 
     <div class="rtr-services__heading">
       <h2>
-        From technical
-        <span>problem to outcome.</span>
+        {% blocktrans %}
+        From problem
+        <span>to technical outcome.</span>
+        {% endblocktrans %}
+        
       </h2>
     </div>
 
@@ -18,28 +21,38 @@
 
       <div>
         <span>01</span>
-        <h3>Build</h3>
+        <h3>{% trans 'Build' %}</h3>
         <p>
+          
+          {% blocktrans %}
           Turn an idea or technical requirement
           into a working system.
+          {% endblocktrans %}
+          
         </p>
       </div>
 
       <div>
         <span>02</span>
-        <h3>Architect</h3>
+        <h3>{% trans 'Architect'%}</h3>
         <p>
+          
+          {% blocktrans %}
           Evaluate complexity, constraints and
           architecture before expensive decisions.
+          {% endblocktrans %}
         </p>
       </div>
 
       <div>
         <span>03</span>
-        <h3>Improve</h3>
+        <h3>{% trans 'Improve' %}</h3>
         <p>
+          
+          {% blocktrans %}
           Find bottlenecks, unnecessary complexity
           and technical risks in existing systems.
+          {% endblocktrans %}
         </p>
       </div>
 
