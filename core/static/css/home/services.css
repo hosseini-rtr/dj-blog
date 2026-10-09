@@ -1,19 +1,79 @@
-.rtr-services { padding: 150px 0; background: #ff5f38; color: #111; }
-.rtr-services .rtr-section-meta { border-color: rgba(0, 0, 0, .25); }
-.rtr-services__heading { margin: 80px 0; }
-.rtr-services h2 { margin: 0; font-size: clamp(50px, 8vw, 110px); line-height: .84; letter-spacing: -.07em; }
-.rtr-services h2 span { display: block; }
-.rtr-services__grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(0, 0, 0, .25); }
-.rtr-services__grid > div { padding: 28px 25px 20px 0; border-right: 1px solid rgba(0, 0, 0, .25); }
-.rtr-services__grid > div + div { padding-inline-start: 25px; }
-.rtr-services__grid span { font: 10px "DM Mono", monospace; }
-.rtr-services h3 { margin: 70px 0 15px; font-size: 36px; letter-spacing: -.05em; }
-.rtr-services p { max-width: 300px; line-height: 1.7; }
+.rtr-services {
+    padding: 150px 0;
+    background: #ff5f38;
+    color: #111;
+}
+
+.rtr-services .rtr-section-meta {
+    border-color: rgba(0, 0, 0, .25);
+}
+
+.rtr-services__heading {
+    margin: 80px 0;
+}
+
+.rtr-services h2 {
+    margin: 0;
+    font-size: clamp(50px, 8vw, 110px);
+    line-height: .84;
+    letter-spacing: -.07em;
+}
+
+.rtr-services h2 span {
+    display: block;
+}
+
+.rtr-services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(0, 0, 0, .25);
+}
+
+.rtr-services__grid>div {
+    padding: 28px 25px 20px 0;
+    border-right: 1px solid rgba(0, 0, 0, .25);
+}
+
+.rtr-services__grid>div+div {
+    padding-inline-start: 25px;
+}
+
+.rtr-services__grid span {
+    font: 10px "DM Mono", monospace;
+}
+
+.rtr-services h3 {
+    margin: 70px 0 15px;
+    font-size: 36px;
+    letter-spacing: -.05em;
+}
+
+.rtr-services p {
+    max-width: 300px;
+    line-height: 1.7;
+}
 
 @media (max-width: 700px) {
-  .rtr-services { padding: 100px 0; }
-  .rtr-services__heading { margin: 60px 0; }
-  .rtr-services__grid { grid-template-columns: 1fr; }
-  .rtr-services__grid > div, .rtr-services__grid > div + div { padding: 25px 0; border-inline-end: 0; border-bottom: 1px solid rgba(0, 0, 0, .25); }
-  .rtr-services h3 { margin-top: 40px; }
+    .rtr-services {
+        padding: 100px 0;
+    }
+
+    .rtr-services__heading {
+        margin: 60px 0;
+    }
+
+    .rtr-services__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rtr-services__grid>div,
+    .rtr-services__grid>div+div {
+        padding: 25px 0;
+        border-inline-end: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, .25);
+    }
+
+    .rtr-services h3 {
+        margin-top: 40px;
+    }
 }

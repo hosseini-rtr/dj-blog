@@ -12,7 +12,6 @@ from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 
 from apps.blog.models import Post
-
 from apps.common.models import ContactMessage, ShortURL
 
 logger = logging.getLogger(__name__)
@@ -50,17 +49,13 @@ def sitemap_xml(request):
             request.build_absolute_uri(post.get_absolute_url()),
             post.updated_at,
         )
-        for post in Post.objects.filter(is_published=True).only(
-            "slug", "updated_at"
-        )
+        for post in Post.objects.filter(is_published=True).only("slug", "updated_at")
     )
 
     entries = []
     for url, lastmod in urls:
         lastmod_tag = (
-            f"<lastmod>{lastmod.date().isoformat()}</lastmod>"
-            if lastmod
-            else ""
+            f"<lastmod>{lastmod.date().isoformat()}</lastmod>" if lastmod else ""
         )
         entries.append(f"<url><loc>{url}</loc>{lastmod_tag}</url>")
 
@@ -168,8 +163,6 @@ def contact_view(request):
     return JsonResponse(
         {
             "success": True,
-            "message": _(
-                "Thanks for reaching out. I will get back to you soon."
-            ),
+            "message": _("Thanks for reaching out. I will get back to you soon."),
         }
     )

@@ -17,10 +17,13 @@
         body: new FormData(form),
         headers: { "X-Requested-With": "XMLHttpRequest" },
       })
-        .then(function (res) { return res.json(); })
+        .then(function (res) {
+          return res.json();
+        })
         .then(function (data) {
           note.textContent = data.message || "";
-          note.className = "form-note mono-tag " + (data.success ? "is-success" : "is-error");
+          note.className =
+            "form-note mono-tag " + (data.success ? "is-success" : "is-error");
           if (data.success) form.reset();
         })
         .catch(function () {

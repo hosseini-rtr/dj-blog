@@ -12,8 +12,8 @@ from .views import (
     link_page,
     llms_txt,
     robots_txt,
-    sitemap_xml,
     short_redirect,
+    sitemap_xml,
     teacher_links,
 )
 
