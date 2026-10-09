@@ -1,0 +1,15 @@
+.rtr-experience { padding: 150px 0; background: #111; color: #f5f4ef; }
+.rtr-experience__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10vw; margin-top: 80px; }
+.rtr-experience h2 { margin: 0; font-size: clamp(52px, 7vw, 100px); line-height: .85; letter-spacing: -.07em; }
+.rtr-experience h2 span { display: block; color: #858680; }
+.rtr-experience__list { border-top: 1px solid #2c2c2a; }
+.rtr-experience article { padding: 28px 0; border-bottom: 1px solid #2c2c2a; }
+.rtr-experience article > span { color: #ff5f38; font: 10px "DM Mono", monospace; }
+.rtr-experience h3 { margin: 15px 0 7px; font-size: 25px; }
+.rtr-experience strong { color: #858680; font-size: 12px; font-weight: 500; }
+.rtr-experience p { max-width: 500px; color: #666762; line-height: 1.7; }
+
+@media (max-width: 800px) {
+  .rtr-experience { padding: 100px 0; }
+  .rtr-experience__grid { grid-template-columns: 1fr; gap: 60px; }
+}

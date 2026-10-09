@@ -1,0 +1,21 @@
+.rtr-about {
+  padding: 150px 0;
+  background: #111;
+  color: #f5f4ef;
+}
+
+.rtr-about__grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 10vw; margin-top: 85px; }
+.rtr-about h2 { max-width: 850px; margin: 0; font-size: clamp(45px, 6vw, 82px); line-height: .93; letter-spacing: -.065em; font-weight: 600; }
+.rtr-about h2 span { display: block; color: #858680; }
+.rtr-about__content { padding-top: 10px; }
+.rtr-about p { color: #858680; font-size: 16px; line-height: 1.8; }
+.rtr-about .lead { color: #f5f4ef; font-size: 20px; line-height: 1.6; }
+.rtr-about__facts { margin-top: 50px; border-top: 1px solid #2c2c2a; }
+.rtr-about__facts div { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #2c2c2a; }
+.rtr-about__facts span { color: #ff5f38; font: 10px "DM Mono", monospace; }
+.rtr-about__facts strong { font-size: 12px; font-weight: 500; }
+
+@media (max-width: 800px) {
+  .rtr-about { padding: 100px 0; }
+  .rtr-about__grid { grid-template-columns: 1fr; gap: 50px; margin-top: 60px; }
+}

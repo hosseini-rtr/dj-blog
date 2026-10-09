@@ -3,8 +3,14 @@
 {% load i18n %}
 
 {% block title %}
-#{{ view.kwargs.tag }} — {% trans "Blog" %}
+#{{ view.kwargs.tag }} | {% trans "Engineering Notes" %} | Seyed Hossein Hosseini
 {% endblock %}
+
+{% block meta_description %}{% blocktrans with tag=view.kwargs.tag %}Engineering notes tagged {{ tag }}: practical writing on software, AI, architecture, and systems.{% endblocktrans %}{% endblock %}
+{% block og_title %}#{{ view.kwargs.tag }} | {% trans "Engineering Notes" %}{% endblock %}
+{% block og_description %}{% blocktrans with tag=view.kwargs.tag %}Engineering notes tagged {{ tag }}: practical writing on software, AI, architecture, and systems.{% endblocktrans %}{% endblock %}
+{% block twitter_title %}#{{ view.kwargs.tag }} | {% trans "Engineering Notes" %}{% endblock %}
+{% block twitter_description %}{% blocktrans with tag=view.kwargs.tag %}Engineering notes tagged {{ tag }}: practical writing on software, AI, architecture, and systems.{% endblocktrans %}{% endblock %}
 
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">

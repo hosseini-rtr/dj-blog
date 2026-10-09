@@ -1,0 +1,20 @@
+.rtr-container {
+  width: min(1240px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.rtr-section-meta {
+  display: flex;
+  gap: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #2c2c2a;
+  color: #f5f4ef;
+  font: 10px "DM Mono", monospace;
+  letter-spacing: .14em;
+}
+
+.rtr-section-meta span:first-child { color: #ff5f38; }
+
+@media (max-width: 600px) {
+  .rtr-container { width: min(100% - 32px, 1240px); }
+}

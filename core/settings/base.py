@@ -103,9 +103,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en"
 LANGUAGES = [
-    ("en", _("English")),
-    ("fa", _("Persian")),
-    ("it", _("Italian")),
+    ("en", "English"),
+    ("fa", "Persian"),
+    ("it", "Italian"),
 ]
 USE_I18N = True
 LOCALE_PATHS = [BASE_DIR / "locale"]

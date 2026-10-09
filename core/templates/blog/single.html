@@ -3,21 +3,21 @@
 {% load i18n %}
 
 {% block title %}
-{{ post.title }} — Seyed Hossein Hosseini
+{{ post.meta_title|default:post.title }} | Seyed Hossein Hosseini
 {% endblock %}
+
+{% block meta_description %}{{ post.meta_description|default:post.subtitle|default:post.title }}{% endblock %}
+{% block canonical_url %}{% if post.canonical_url %}{{ post.canonical_url }}{% else %}{{ request.build_absolute_uri }}{% endif %}{% endblock %}
+{% block og_title %}{{ post.meta_title|default:post.title }}{% endblock %}
+{% block og_description %}{{ post.meta_description|default:post.subtitle|default:post.title }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block twitter_title %}{{ post.meta_title|default:post.title }}{% endblock %}
+{% block twitter_description %}{{ post.meta_description|default:post.subtitle|default:post.title }}{% endblock %}
+{% if post.noindex %}{% block robots %}noindex, follow{% endblock %}{% endif %}
 
 {% block extra_head %}
 
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-
-<meta
-  name="description"
-  content="{{ post.subtitle|default:post.title }}"
->
-
-<meta property="og:title" content="{{ post.title }}">
-<meta property="og:description" content="{{ post.subtitle|default:post.title }}">
-<meta property="og:type" content="article">
 
 {% if post.image %}
 <meta
@@ -25,6 +25,20 @@
   content="{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}"
 >
 {% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ post.title|escapejs }}",
+  "description": "{{ post.meta_description|default:post.subtitle|default:post.title|escapejs }}",
+  "datePublished": "{{ post.created_at|date:'c' }}",
+  "dateModified": "{{ post.updated_at|date:'c' }}",
+  "author": {"@type": "Person", "name": "Seyed Hossein Hosseini"},
+  "image": "{% if post.image %}{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}{% else %}{{ request.scheme }}://{{ request.get_host }}{% static 'assets/logo-white.svg' %}{% endif %}",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "{{ request.build_absolute_uri }}"}
+}
+</script>
 
 {% endblock %}
 

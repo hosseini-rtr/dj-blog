@@ -5,13 +5,30 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import RedirectView
 
-from .views import contact_view, home_view, link_page, short_redirect, teacher_links
+from .views import (
+    agent_txt,
+    contact_view,
+    home_view,
+    link_page,
+    llms_txt,
+    robots_txt,
+    sitemap_xml,
+    short_redirect,
+    teacher_links,
+)
 
 urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
     path("ckeditor5/", include("django_ckeditor_5.urls")),
+    path("robots.txt", robots_txt, name="robots"),
+    path("sitemap.xml", sitemap_xml, name="sitemap"),
+    path("llms.txt", llms_txt, name="llms"),
+    path("agent.txt", agent_txt, name="agent"),
     # Redirect non-prefixed blog root to the language-prefixed path
-    path("blog/", RedirectView.as_view(url=f"/{settings.LANGUAGE_CODE}/blog/")),
+    path(
+        "blog/",
+        RedirectView.as_view(url=f"/{settings.LANGUAGE_CODE}/blog/"),
+    ),
 ]
 
 urlpatterns += i18n_patterns(

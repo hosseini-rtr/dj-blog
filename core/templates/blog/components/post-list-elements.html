@@ -9,16 +9,9 @@
     class="post-item__link"
   >
 
-    <div class="post-item__number">
-      {{ forloop.counter|stringformat:"02d" }}
-    </div>
-
-
-    <div class="post-item__date">
-      <span>{{ post.created_at|date:"M" }}</span>
-      <strong>{{ post.created_at|date:"d" }}</strong>
-      <span>{{ post.created_at|date:"Y" }}</span>
-    </div>
+    <time class="post-item__date" datetime="{{ post.created_at|date:'Y-m-d' }}">
+      {{ post.created_at|date:"M d, Y" }}
+    </time>
 
 
     <div class="post-item__content">
@@ -46,8 +39,8 @@
     </div>
 
 
-    <div class="post-item__action">
-      <span>READ</span>
+    <div class="post-item__action" aria-hidden="true">
+      <span>{% trans "Read article" %}</span>
       <b>↗</b>
     </div>
 

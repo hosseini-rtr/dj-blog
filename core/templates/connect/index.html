@@ -3,8 +3,14 @@
 {% load i18n %}
 
 {% block title %}
-Seyed Hossein Hosseini — linkt.ree
+Seyed Hossein Hosseini | {% trans "Connect" %}
 {% endblock %}
+
+{% block meta_description %}{% trans "Find Seyed Hossein Hosseini's portfolio, engineering journal, code, and professional contact links." %}{% endblock %}
+{% block og_title %}Seyed Hossein Hosseini | {% trans "Connect" %}{% endblock %}
+{% block og_description %}{% trans "Portfolio, engineering journal, code, and professional contact links for Seyed Hossein Hosseini." %}{% endblock %}
+{% block twitter_title %}Seyed Hossein Hosseini | {% trans "Connect" %}{% endblock %}
+{% block twitter_description %}{% trans "Portfolio, engineering journal, code, and professional contact links for Seyed Hossein Hosseini." %}{% endblock %}
 
 {% block extra_head %}
 <style>
@@ -778,7 +784,7 @@ Seyed Hossein Hosseini — linkt.ree
             <div class="connect-links">
 
                 <a
-                    href="#"
+                    href="{% url 'home' %}#work"
                     class="connect-link"
                 >
 
@@ -810,7 +816,7 @@ Seyed Hossein Hosseini — linkt.ree
 
 
                 <a
-                    href="#"
+                    href="{% url 'home' %}#work"
                     class="connect-link"
                 >
 

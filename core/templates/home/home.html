@@ -3,26 +3,24 @@
 {% load i18n %}
 
 {% block title %}
-  {{ hero.name }} — {% trans "Software Engineer" %}
+  Seyed Hossein Hosseini | {% trans "Software Engineer, AI & Systems" %}
 {% endblock %}
+
+{% block meta_description %}{% trans "Seyed Hossein Hosseini is a software engineer building backend systems, AI products, and technically difficult software." %}{% endblock %}
+{% block og_title %}Seyed Hossein Hosseini | {% trans "Software Engineer, AI & Systems" %}{% endblock %}
+{% block og_description %}{% trans "Backend systems, AI products, architecture, and technical work by Seyed Hossein Hosseini." %}{% endblock %}
+{% block twitter_title %}Seyed Hossein Hosseini | {% trans "Software Engineer, AI & Systems" %}{% endblock %}
+{% block twitter_description %}{% trans "Backend systems, AI products, architecture, and technical work by Seyed Hossein Hosseini." %}{% endblock %}
 
 {% block extra_head %}
 
-<meta
-  name="description"
-  content="{{ hero.tagline }}"
->
-
-<meta name="robots" content="index, follow">
-
-<meta property="og:title" content="{{ hero.name }}">
-<meta property="og:description" content="{{ hero.tagline }}">
-<meta property="og:type" content="website">
-
-<link
-  href="{% static 'css/home.css' %}"
-  rel="stylesheet"
->
+<link href="{% static 'css/home/base.css' %}" rel="stylesheet">
+<link href="{% static 'css/home/work.css' %}" rel="stylesheet">
+<link href="{% static 'css/home/about.css' %}" rel="stylesheet">
+<link href="{% static 'css/home/capabilities.css' %}" rel="stylesheet">
+<link href="{% static 'css/home/experience.css' %}" rel="stylesheet">
+<link href="{% static 'css/home/services.css' %}" rel="stylesheet">
+<link href="{% static 'css/home/contact.css' %}" rel="stylesheet">
 
 {% endblock %}
 

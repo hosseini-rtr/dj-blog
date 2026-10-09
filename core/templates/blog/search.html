@@ -2,7 +2,14 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "Search" %} — Blog{% endblock %}
+{% block title %}{% trans "Search Engineering Notes" %} | Seyed Hossein Hosseini{% endblock %}
+
+{% block meta_description %}{% trans "Search Seyed Hossein Hosseini's engineering notes about AI, Python, architecture, and software systems." %}{% endblock %}
+{% block robots %}noindex, follow{% endblock %}
+{% block og_title %}{% trans "Search Engineering Notes" %} | Seyed Hossein Hosseini{% endblock %}
+{% block og_description %}{% trans "Search engineering notes about AI, Python, architecture, and software systems." %}{% endblock %}
+{% block twitter_title %}{% trans "Search Engineering Notes" %} | Seyed Hossein Hosseini{% endblock %}
+{% block twitter_description %}{% trans "Search engineering notes about AI, Python, architecture, and software systems." %}{% endblock %}
 
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">
@@ -54,7 +61,6 @@
             type="search"
             name="q"
             value="{{ request.GET.q|default:'' }}"
-            placeholder="{% trans 'Django, AI, distributed systems...' %}"
             autofocus
           >
 

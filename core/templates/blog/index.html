@@ -2,17 +2,35 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "Blog" %} — Seyed Hossein Hosseini{% endblock %}
+{% block title %}{% trans "Engineering Notes on AI, Python & Systems" %} | Seyed Hossein Hosseini{% endblock %}
+
+{% block meta_description %}{% trans "Engineering notes on AI, Python, backend architecture, distributed systems, and building reliable software." %}{% endblock %}
+{% block og_title %}{% trans "Engineering Notes on AI, Python & Systems" %} | Seyed Hossein Hosseini{% endblock %}
+{% block og_description %}{% trans "Engineering notes on AI, Python, backend architecture, distributed systems, and building reliable software." %}{% endblock %}
+{% block twitter_title %}{% trans "Engineering Notes on AI, Python & Systems" %} | Seyed Hossein Hosseini{% endblock %}
+{% block twitter_description %}{% trans "Engineering notes on AI, Python, backend architecture, distributed systems, and building reliable software." %}{% endblock %}
 
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-<meta name="description"
-      content="{% trans 'Engineering notes, AI, architecture, Python and systems.' %}">
 {% endblock %}
 
 {% block template %}
 
-<main class="blog-page">
+<main class="blog-page" id="main-content">
+
+  <header class="blog-intro blog-container">
+    <div class="blog-intro__copy">
+      <p class="eyebrow">{% trans "The journal" %}</p>
+      <h1>{% trans "Ideas for building better systems." %}</h1>
+      <p class="blog-intro__description">
+        {% trans "Practical notes on software engineering, AI, architecture, Python, and the decisions behind real products." %}
+      </p>
+    </div>
+    <div class="blog-intro__aside">
+      <span class="blog-intro__mark" aria-hidden="true">R·T</span>
+      <span class="mono">{% trans "WRITTEN, TESTED, SHARED" %}</span>
+    </div>
+  </header>
 
   <!-- BLOG TOOLBAR -->
   <section class="blog-toolbar">
@@ -27,12 +45,10 @@
             href="{% url 'blog:home' %}"
             class="blog-tab is-active"
           >
-            <span>01</span>
             {% trans "All posts" %}
           </a>
 
           <a href="{% url 'blog:search' %}" class="blog-tab">
-            <span>02</span>
             {% trans "Search" %}
           </a>
 
@@ -48,11 +64,9 @@
 
 
       <!-- TOPICS -->
-      <div class="blog-topics">
+      <div class="blog-topics" aria-label="{% trans 'Filter by topic' %}">
 
-        <span class="blog-topics__label">
-          {% trans "TOPICS" %}
-        </span>
+        <span class="blog-topics__label">{% trans "Browse topics" %}</span>
 
         <div class="blog-topics__list">
 
@@ -102,7 +116,6 @@
             id="blog-search"
             name="q"
             type="search"
-            placeholder="{% trans 'Search by title, topic or keyword...' %}"
             autocomplete="off"
           >
 
@@ -126,9 +139,11 @@
     <div class="blog-container">
 
       <div class="blog-posts__header">
-        <span class="mono">
-          {% trans "MOST RECENT FIRST" %}
-        </span>
+        <div>
+          <p class="eyebrow">{% trans "The archive" %}</p>
+          <h2>{% trans "Latest notes" %}</h2>
+        </div>
+        <span class="mono">{% trans "MOST RECENT FIRST" %}</span>
 
       </div>
 
